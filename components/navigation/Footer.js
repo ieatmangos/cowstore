@@ -20,7 +20,7 @@ const navigation = {
     // { name: 'API Status', href: '#' },
   ],
   company: [
-    { name: "About", href: "#" },
+    { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     // { name: 'Jobs', href: '#' },
     // { name: 'Press', href: '#' },
@@ -97,7 +97,7 @@ const navigation = {
 };
 const Footer = () => {
   return (
-    <footer className="mt-48 " aria-labelledby="footer-heading">
+    <footer className="mt-16 xl:mt-32 " aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Cow Store Vermont
       </h2>

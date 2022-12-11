@@ -1,76 +1,7 @@
-import { useEffect, useState } from "react";
-
 import Link from "next/link";
-import formatMoney from "@lib/utils/formatMoney";
 import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
-import Centered from "@components/ui/cta/CTACentered";
 import ProjectMarquee from "@components/ui/marquee/ProjectMarquee";
 
-const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
-const navigation = {
-  categories: [
-    {
-      name: "Women",
-      featured: [
-        { name: "Sleep", href: "#" },
-        { name: "Swimwear", href: "#" },
-        { name: "Underwear", href: "#" },
-      ],
-      collection: [
-        { name: "Everything", href: "#" },
-        { name: "Core", href: "#" },
-        { name: "New Arrivals", href: "#" },
-        { name: "Sale", href: "#" },
-      ],
-      categories: [
-        { name: "Basic Tees", href: "#" },
-        { name: "Artwork Tees", href: "#" },
-        { name: "Bottoms", href: "#" },
-        { name: "Underwear", href: "#" },
-        { name: "Accessories", href: "#" },
-      ],
-      brands: [
-        { name: "Full Nelson", href: "#" },
-        { name: "My Way", href: "#" },
-        { name: "Re-Arranged", href: "#" },
-        { name: "Counterfeit", href: "#" },
-        { name: "Significant Other", href: "#" },
-      ],
-    },
-    {
-      name: "Men",
-      featured: [
-        { name: "Casual", href: "#" },
-        { name: "Boxers", href: "#" },
-        { name: "Outdoor", href: "#" },
-      ],
-      collection: [
-        { name: "Everything", href: "#" },
-        { name: "Core", href: "#" },
-        { name: "New Arrivals", href: "#" },
-        { name: "Sale", href: "#" },
-      ],
-      categories: [
-        { name: "Artwork Tees", href: "#" },
-        { name: "Pants", href: "#" },
-        { name: "Accessories", href: "#" },
-        { name: "Boxers", href: "#" },
-        { name: "Basic Tees", href: "#" },
-      ],
-      brands: [
-        { name: "Significant Other", href: "#" },
-        { name: "My Way", href: "#" },
-        { name: "Counterfeit", href: "#" },
-        { name: "Re-Arranged", href: "#" },
-        { name: "Full Nelson", href: "#" },
-      ],
-    },
-  ],
-  pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
-  ],
-};
 const offers = [
   {
     name: "Taste the difference",
@@ -88,53 +19,7 @@ const offers = [
     href: "#",
   },
 ];
-const trendingProducts = [
-  {
-    id: 1,
-    name: "Machined Pen",
-    color: "Black",
-    price: "$35",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg",
-    imageAlt:
-      "Black machined steel pen with hexagonal grip and small white logo at top.",
-    availableColors: [
-      { name: "Black", colorBg: "#111827" },
-      { name: "Brass", colorBg: "#FDE68A" },
-      { name: "Chrome", colorBg: "#E5E7EB" },
-    ],
-  },
-  // More products...
-];
-const collections = [
-  {
-    name: "Desk and Office",
-    description: "Work from home accessories",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg",
-    imageAlt:
-      "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
-  },
-  {
-    name: "Self-Improvement",
-    description: "Journals and note-taking",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg",
-    imageAlt:
-      "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "#",
-  },
-  {
-    name: "Travel",
-    description: "Daily commute essentials",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg",
-    imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-    href: "#",
-  },
-];
+
 const testimonials = [
   {
     id: 1,
@@ -156,10 +41,7 @@ const testimonials = [
   },
 ];
 
-export default function Homepage({ products, categories }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [variants, setVariants] = useState(null);
-
+export default function Homepage({ products, categories, reviews }) {
   // const getVariants = async () => {
   //   const a = await swell.get('/products:variants', {
   //     where: { active: true },
@@ -472,7 +354,7 @@ export default function Homepage({ products, categories }) {
               </h2>
 
               <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                {testimonials.map((testimonial) => (
+                {reviews.map((testimonial) => (
                   <blockquote key={testimonial.id} className="sm:flex lg:block">
                     <svg
                       width={24}
@@ -489,10 +371,10 @@ export default function Homepage({ products, categories }) {
                     </svg>
                     <div className="mt-8 sm:mt-0 sm:ml-6 lg:mt-10 lg:ml-0">
                       <p className="text-lg text-gray-600">
-                        {testimonial.quote}
+                        {testimonial.comments}
                       </p>
                       <cite className="block mt-4 not-italic font-semibold text-gray-900">
-                        {testimonial.attribution}
+                        {testimonial.name}
                       </cite>
                     </div>
                   </blockquote>

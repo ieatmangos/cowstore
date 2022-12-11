@@ -1,11 +1,11 @@
 import Homepage from "@components/home/Homepage";
 import getHomePageProps from "@lib/page-props/getHomePageProps";
-import { getSearchPageProps } from "@lib/swell";
 
-export default function index({ products, categories }) {
+export default function index({ products, categories, reviews }) {
+  console.log(reviews);
   return (
     <>
-      <Homepage products={products} categories={categories} />
+      <Homepage reviews={reviews} products={products} categories={categories} />
     </>
   );
 }

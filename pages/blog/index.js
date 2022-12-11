@@ -10,7 +10,7 @@ export default function Blog({ blogs }) {
     <div className={`overflow-hidden`}>
       <PageTitle
         title="Latest Updates"
-        msg="All the latest Cow Store news, straight from the team."
+        msg="All the latest Cow Store news, straight from the cow's mouth."
       />
       <div
         className={`max-w-[52rem] mx-auto px-4 pb-28 sm:px-6 md:px-8 xl:px-12 lg:max-w-6xl`}
