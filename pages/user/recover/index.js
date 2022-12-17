@@ -1,16 +1,13 @@
 import Logo from "@components/ui/Logo";
-import { login, defaultAccount } from "@lib/swell";
-import cn from "@utils/cn";
+import { defaultAccount } from "@lib/swell";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { useStore } from "@lib/context/StoreContext";
 import Link from "next/link";
 import recover from "@lib/swell/auth/recover";
 import toast from "react-hot-toast";
 
 export default function Recover() {
-  const router = useRouter();
   const [newAccount, setNewAccount] = useState(defaultAccount);
   const [closeDown, setCloseDown] = useState(false);
   const [hasError, setHasError] = useState(false);

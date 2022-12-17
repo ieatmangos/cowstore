@@ -25,6 +25,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import cn from "@utils/cn";
 import Link from "next/link";
 import Logo from "@components/ui/Logo";
+import Cart from "@components/cart/Cart";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -91,7 +92,7 @@ const navigation = {
     { name: "Beef", href: "/store/cow" },
     { name: "Lamb", href: "/store/lamb" },
     // { name: "Beef", href: "/store/beef" },
-    { name: "About us", href: "/about" },
+    { name: "About", href: "/about" },
   ],
 };
 
@@ -99,7 +100,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative z-50 bg-white">
+    <div className="relative bg-white">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -138,7 +139,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Links */}
-                <Tab.Group as="div" className="mt-2">
+                <Tab.Group as="div" className="mt-2 ">
                   <div className="border-b border-gray-200">
                     <Tab.List className="flex px-4 -mb-px space-x-8">
                       {navigation.categories.map((category) => (
@@ -275,12 +276,11 @@ export default function Navbar() {
                 <div className="px-4 py-6 space-y-6 border-t border-gray-200">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a
-                        href={page.href}
-                        className="block p-2 -m-2 font-medium text-gray-900"
-                      >
-                        {page.name}
-                      </a>
+                      <Link href={page.href}>
+                        <div className="block p-2 -m-2 font-medium text-gray-900">
+                          {page.name}
+                        </div>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -300,34 +300,6 @@ export default function Navbar() {
                       </div>
                     </Link>
                   </div>
-                </div>
-
-                <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-                  {/* Currency selector */}
-                  <form>
-                    <div className="inline-block">
-                      <label htmlFor="mobile-currency" className="sr-only">
-                        Currency
-                      </label>
-                      <div className="relative -ml-2 border-transparent rounded-md group focus-within:ring-2 focus-within:ring-white">
-                        <select
-                          id="mobile-currency"
-                          name="currency"
-                          className="flex items-center rounded-md border-transparent bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-gray-700 focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-800"
-                        >
-                          {currencies.map((currency) => (
-                            <option key={currency}>{currency}</option>
-                          ))}
-                        </select>
-                        <div className="absolute inset-y-0 right-0 flex items-center pointer-events-none">
-                          <ChevronDownIcon
-                            className="w-5 h-5 text-gray-500"
-                            aria-hidden="true"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </form>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -368,7 +340,7 @@ export default function Navbar() {
               </form> */}
 
               <p className="flex-1 text-sm font-medium text-center text-teal-900 lg:flex-none">
-                Get free delivery on orders over $100
+                Vermont beef, delivered FREE to the Northeast!
               </p>
 
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -630,13 +602,15 @@ export default function Navbar() {
                         </div>
 
                         <div className="flex">
-                          <a
-                            href="#"
-                            className="p-2 -m-2 text-gray-400 hover:text-gray-500"
-                          >
-                            <span className="sr-only">Account</span>
-                            <UserIcon className="w-6 h-6" aria-hidden="true" />
-                          </a>
+                          <Link href="/user">
+                            <div className="p-2 -m-2 text-gray-400 hover:text-gray-500">
+                              <span className="sr-only">Account</span>
+                              <UserIcon
+                                className="w-6 h-6"
+                                aria-hidden="true"
+                              />
+                            </div>
+                          </Link>
                         </div>
                       </div>
 
@@ -646,21 +620,7 @@ export default function Navbar() {
                       />
 
                       <div className="flow-root">
-                        <a
-                          href="#"
-                          className="flex items-center p-2 -m-2 group"
-                        >
-                          <ShoppingCartIcon
-                            className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                            0
-                          </span>
-                          <span className="sr-only">
-                            items in cart, view bag
-                          </span>
-                        </a>
+                        <Cart />
                       </div>
                     </div>
                   </div>

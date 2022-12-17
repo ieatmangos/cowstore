@@ -1,6 +1,8 @@
 import Link from "next/link";
 import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
 import ProjectMarquee from "@components/ui/marquee/ProjectMarquee";
+import Image from "next/image";
+import { Feature1 } from "@components/features";
 
 const offers = [
   {
@@ -121,57 +123,64 @@ export default function Homepage({ products, categories, reviews }) {
                       <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                         <div className="flex items-center space-x-6 lg:space-x-8">
                           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100">
-                              <img
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100">
+                              <Image
+                                layout="fill"
                                 src="/assets/steak/1.jpg"
-                                alt=""
+                                alt="Cuts of beef"
                                 className="object-cover object-center w-full h-full "
                               />
                             </div>
-                            <div className="h-64 overflow-hidden rounded-lg w-44">
-                              <img
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44">
+                              <Image
+                                layout="fill"
                                 src="/assets/steak/2.jpg"
-                                alt=""
-                                className="object-cover object-center w-full h-full"
+                                alt="Cuts of beef"
+                                className="object-cover object-center w-full h-full "
                               />
                             </div>
                           </div>
                           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="h-64 overflow-hidden rounded-lg w-44 ">
-                              <img
-                                src="/assets/steak/1.jpg"
-                                alt=""
-                                className="object-cover object-center w-full h-full"
+                            <div className="relative h-64 overflow-hidden rounded-lg realtive w-44 ">
+                              <Image
+                                layout="fill"
+                                src="/assets/steak/3.jpg"
+                                alt="Cuts of beef"
+                                className="object-cover object-center w-full h-full "
                               />
                             </div>
-                            <div className="h-64 overflow-hidden delay-1000 rounded-lg w-44 ">
-                              <img
+                            <div className="relative h-64 overflow-hidden delay-1000 rounded-lg w-44 ">
+                              <Image
+                                layout="fill"
                                 src="/assets/steak/4.jpg"
-                                alt=""
-                                className="object-cover object-center w-full h-full"
+                                alt="Cuts of beef"
+                                className="object-cover object-center w-full h-full "
                               />
                             </div>
-                            <div className="h-64 overflow-hidden rounded-lg w-44 ">
-                              <img
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 ">
+                              <Image
+                                layout="fill"
                                 src="/assets/steak/5.jpg"
-                                alt=""
-                                className="object-cover object-center w-full h-full"
+                                alt="Cuts of beef"
+                                className="object-cover object-center w-full h-full "
                               />
                             </div>
                           </div>
                           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="h-64 overflow-hidden rounded-lg w-44">
-                              <img
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44">
+                              <Image
+                                layout="fill"
                                 src="/assets/steak/6.jpg"
-                                alt=""
-                                className="object-cover object-center w-full h-full"
+                                alt="Cuts of beef"
+                                className="object-cover object-center w-full h-full "
                               />
                             </div>
-                            <div className="h-64 overflow-hidden rounded-lg w-44">
-                              <img
-                                src="/assets/steak/8.jpg"
-                                alt=""
-                                className="object-cover object-center w-full h-full"
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44">
+                              <Image
+                                layout="fill"
+                                src="/assets/steak/7.jpg"
+                                alt="Cuts of beef"
+                                className="object-cover object-center w-full h-full "
                               />
                             </div>
                           </div>
@@ -228,7 +237,7 @@ export default function Homepage({ products, categories, reviews }) {
         {/* Trending products */}
         <section
           aria-labelledby="trending-heading"
-          className="relative z-10 bg-gray-50"
+          className="relative z-10 bg-gradient-to-b from-gray-50 to-white"
         >
           <div className="py-16 sm:py-24 lg:mx-auto lg:py-32 ">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:mx-auto lg:max-w-7xl lg:px-8">
@@ -316,7 +325,7 @@ export default function Homepage({ products, categories, reviews }) {
             <div className="absolute inset-0 bg-gradient-to-t from-white via-white" />
           </div>
 
-          {/* Sale */}
+          {/* Promo */}
           <section
             aria-labelledby="sale-heading"
             className="relative flex flex-col items-center px-4 pt-32 mx-auto text-center max-w-7xl sm:px-6 lg:px-8"
@@ -326,15 +335,15 @@ export default function Homepage({ products, categories, reviews }) {
                 id="sale-heading"
                 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
               >
-                A Butcher Shop in the Garage
+                Butcher Shop in the Basement
               </h2>
               <p className="max-w-xl mx-auto mt-4 mb-12 text-xl text-gray-600">
                 Enjoy convenience, quality, and freshness with our carefully
                 sourced meat, butchered to order. Feast like a carnivore!
               </p>
               <Link href="/shop">
-                <div className="inline-block px-8 py-3 font-medium text-center border border-transparent rounded-md text-rose-900 bg-rose-300 hover:bg-rose-200">
-                  Explore Options
+                <div className="inline-block px-8 py-3 font-medium text-center text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-200">
+                  Shop favorites
                 </div>
               </Link>
             </div>
@@ -383,6 +392,10 @@ export default function Homepage({ products, categories, reviews }) {
             </div>
           </section>
         </div>
+        {/* Promo */}
+        <section aria-labelledby="sale-heading" className="">
+          <Feature1 />
+        </section>
       </main>
 
       {/* <section aria-labelledby="sale-heading">

@@ -6,6 +6,7 @@ import ProductCuts from "./ProductCuts";
 import ProductReviews from "./ProductReviews";
 import ProductImagesGrid from "./ProductImagesGrid";
 import StarRating from "@components/review/StarRating";
+import useCart from "@lib/swell/cart/useCart";
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
 export default function ProductPage({ product }) {
@@ -15,6 +16,12 @@ export default function ProductPage({ product }) {
     product.reviews?.results.reduce((a, c) => a + c.rating, 0) /
       product.reviews?.results.length
   );
+
+  const { add, cart } = useCart();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    add(product.id);
+  };
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -84,7 +91,7 @@ export default function ProductPage({ product }) {
                 <p className="sr-only">{averageReview} out of 5 stars</p>
                 <a
                   href={reviews.href}
-                  className="ml-3 text-sm font-medium text-teal-600 hover:text-teal-500"
+                  className="ml-3 text-sm font-medium text-gray-600 hover:text-teal-500"
                 >
                   {product.reviews.results.length || 0} review
                   {product.reviews.results.length > 1 ? "s" : ""}
@@ -92,7 +99,7 @@ export default function ProductPage({ product }) {
               </div>
             </div>
 
-            <form className="mt-10">
+            <form onSubmit={handleSubmit} className="mt-10">
               {/* Colors */}
               {/* <div>
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
@@ -221,9 +228,9 @@ export default function ProductPage({ product }) {
 
               <button
                 type="submit"
-                className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white bg-teal-600 border border-transparent rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2"
               >
-                Add to bag
+                Add to cart
               </button>
             </form>
           </div>

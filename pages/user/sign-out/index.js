@@ -1,10 +1,5 @@
 import Logo from "@components/ui/Logo";
-import { login, defaultAccount, logout } from "@lib/swell";
-import cn from "@utils/cn";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-
-import { useStore } from "@lib/context/StoreContext";
+import { logout } from "@lib/swell";
 import Link from "next/link";
 
 export default function SignOut() {

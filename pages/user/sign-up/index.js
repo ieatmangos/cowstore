@@ -1,25 +1,17 @@
 import Logo from "@components/ui/Logo";
-import { RadioGroup } from "@headlessui/react";
 import {
   accountMetaDataOptions,
   createAccount,
   defaultAccount,
   logout,
-  getAllProducts,
 } from "@lib/swell";
-import cn from "@utils/cn";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
-import { useStore } from "@lib/context/StoreContext";
-import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
 export default function SignUp() {
-  const store = useStore();
   const router = useRouter();
   const [newAccount, setNewAccount] = useState(defaultAccount);
-  const [selectedGroup, setSelectedGroup] = useState(accountMetaDataOptions[0]);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -111,7 +103,6 @@ export default function SignUp() {
                     />
                   </div>
                 </div>
-
                 <div>
                   <label
                     htmlFor="password"
@@ -149,6 +140,14 @@ export default function SignUp() {
                       id="remember-me"
                       name="remember-me"
                       type="checkbox"
+                      onChange={() => {
+                        setNewAccount((act) => {
+                          return {
+                            ...act,
+                            email_optin: !act.email_optin,
+                          };
+                        });
+                      }}
                       className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
                     />
                     <label
@@ -165,10 +164,8 @@ export default function SignUp() {
                     </div>
                   </Link>
                 </div>
-
                 {/* END */}
-
-                <RadioGroup value={selectedGroup} onChange={setSelectedGroup}>
+                {/* <RadioGroup value={selectedGroup} onChange={setSelectedGroup}>
                   <RadioGroup.Label className="block text-sm font-medium text-gray-700">
                     Account Type
                   </RadioGroup.Label>
@@ -218,16 +215,7 @@ export default function SignUp() {
                               {size.description}
                             </RadioGroup.Description>
 
-                            {/* <span
-                                className={cn(
-                                  active ? "border" : "border-2",
-                                  checked
-                                    ? "border-indigo-500"
-                                    : "border-transparent",
-                                  "pointer-events-none absolute -inset-px rounded-lg"
-                                )}
-                                aria-hidden="true"
-                              /> */}
+                     
                             <div
                               className={cn(
                                 active ? "border" : "border-2",
@@ -243,8 +231,7 @@ export default function SignUp() {
                       </RadioGroup.Option>
                     ))}
                   </div>
-                </RadioGroup>
-
+                </RadioGroup> */}
                 <div>
                   <button
                     // disabled={disabled}

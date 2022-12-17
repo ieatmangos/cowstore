@@ -1,10 +1,8 @@
 import Logo from "@components/ui/Logo";
 import { login, defaultAccount } from "@lib/swell";
-import cn from "@utils/cn";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { useStore } from "@lib/context/StoreContext";
 import Link from "next/link";
 
 export default function SignUp() {
