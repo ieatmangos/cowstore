@@ -3,6 +3,7 @@ import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
 import ProjectMarquee from "@components/ui/marquee/ProjectMarquee";
 import Image from "next/image";
 import { Feature1 } from "@components/features";
+import Cow from "@components/ui/cow";
 
 const offers = [
   {
@@ -114,7 +115,7 @@ export default function Homepage({ products, categories, reviews }) {
                   </p>
                 </div>
                 <div>
-                  <div className="mt-10">
+                  <div className="mt-24">
                     {/* Decorative image grid */}
                     <div
                       aria-hidden="true"
@@ -187,11 +188,18 @@ export default function Homepage({ products, categories, reviews }) {
                         </div>
                       </div>
                     </div>
-                    <Link href="/shop">
-                      <div className="inline-block px-8 py-3 font-medium text-center text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-200">
-                        Shop
+                    <div className={`relative `}>
+                      <div className={`absolute inset-0 -top-16`}>
+                        <Cow />
                       </div>
-                    </Link>
+                      <div className={`relative`}>
+                        <Link href="/store">
+                          <div className="inline-block px-8 py-3 font-medium text-center text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-200">
+                            Shop
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
