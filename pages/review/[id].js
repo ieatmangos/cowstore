@@ -1,4 +1,5 @@
 import StarRating from "@components/review/StarRating";
+import { useModal } from "@lib/context/ModalContext";
 import getUser from "@lib/swell/auth/getUser";
 import getProduct from "@lib/swell/products/getProduct";
 import { useRouter } from "next/router";
@@ -33,9 +34,22 @@ function NewReviewPage() {
     changeReview(router.query.id, "parent_id");
     findUser(router.query.id);
   }, []);
+  const { isOpen, open } = useModal();
 
   const findUser = async (productId) => {
+    //
+    //
+    //
+    //
     const user = await getUser();
+    if (!user) {
+      open();
+      return;
+    }
+    //
+    //
+    //
+    //
     changeReview(user.id, "account_id");
     changeReview(user.email, "title");
     const product = await getProduct(productId);

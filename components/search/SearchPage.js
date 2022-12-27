@@ -1,3 +1,4 @@
+import Breadcrumbs from "@components/ui/breadcrumbs";
 import { useEffect } from "react";
 import CategoryFilters from "./CategoryFilters";
 import NoMatchingResults from "./NoMatchingResults";
@@ -12,6 +13,10 @@ export default function SearchPage({
 }) {
   return (
     <div>
+      <div className={` bg-white `}>
+        <Breadcrumbs />
+      </div>
+
       <CategoryFilters
         categories={categories}
         filter={filter}

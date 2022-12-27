@@ -7,14 +7,14 @@ import Link from "next/link";
 
 export default function BlogPage({ blog }) {
   return (
-    <div className={`overflow-hidden`}>
-      <div className={`flex px-4 pt-8 pb-10 lg:px-8`}>
+    <div className={``}>
+      <div className={`xl:sticky top-0 flex px-4 pt-8 pb-10 lg:px-8`}>
         <Link className={`flex`} href={`/blog`}>
           <ChevronLeftIcon
             className={`overflow-visible mr-3 text-slate-400 w-auto h-6 group-hover:text-slate-600 group-hover:text-slate-300`}
           />
           <div
-            className={`group flex font-semibold text-sm leading-6 text-slate-700 hover:text-slate-900 text-slate-200 `}
+            className={`group flex font-semibold text-sm leading-6 text-slate-700 hover:text-slate-900  `}
           >
             Go back
           </div>
@@ -84,7 +84,7 @@ export async function getStaticProps({ params }) {
     props: {
       blog: !blogs ? [] : blogs,
     },
-    revalidate: 5,
+    // revalidate: 500,
   };
   return staticProps;
 }

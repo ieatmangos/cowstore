@@ -8,35 +8,27 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import RedirectMessage from "@components/user-accounts/auth/RedirectMessage";
+import { useModal } from "@lib/context/ModalContext";
 
 export default function SignUp() {
   const router = useRouter();
   const [newAccount, setNewAccount] = useState(defaultAccount);
-
+  const { redirect, setRedirect } = useModal();
   const handleClick = async (e) => {
     e.preventDefault();
     const [act, error] = await createAccount(newAccount);
 
     if (act && !error) {
-      router.push("/user");
+      if (redirect) {
+        router.push(redirect);
+        setRedirect(null);
+      } else {
+        router.push("/user");
+      }
     }
   };
-  // return <div>hi</div>;
-  // const handleValidation = useCallback(() => {
-  //   // Test for Alphanumeric password
-  //   const validPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])/.test(password);
 
-  //   // Unable to send form unless fields are valid.
-  //   setDisabled(
-  //     !newAccount.email.length < 5 ||
-  //       newAccount.password.length < 7 ||
-  //       !validPassword
-  //   );
-  // }, [newAccount]);
-
-  // useEffect(() => {
-  //   handleValidation();
-  // }, [handleValidation]);
   return (
     <>
       <div className="">
@@ -242,6 +234,7 @@ export default function SignUp() {
                     Create
                   </button>
                 </div>
+                <RedirectMessage />
               </form>
             </div>
           </div>

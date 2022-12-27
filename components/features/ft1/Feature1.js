@@ -90,13 +90,14 @@ export default function Feature1() {
 
         <div className="relative">
           <h2 className="text-3xl font-bold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
-            How to purchase beef online in 2023
+            Vermont Pastures USDA Prime Beef
           </h2>
           <p className="max-w-3xl mx-auto mt-4 text-xl text-center text-gray-500">
             Tradionally small VT farms sell beef cows to friends, and
             neighborhood familes. A family can buy in 1/4, 1/2, and whole cows.
             Then feasts for 6 months using a chest freezer in the basement or
-            garage.
+            garage. Cow Store was founded off the idea, that other parts of the
+            US also want to have a treasure chest in their homes.
           </p>
         </div>
 

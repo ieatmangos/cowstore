@@ -12,7 +12,7 @@
   }
   ```
 */
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {
   Dialog,
   Disclosure,
@@ -24,6 +24,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import cn from "@utils/cn";
 import PageTitle from "@components/ui/PageTitle";
+import { useRouter } from "next/router";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -33,6 +34,21 @@ const sortOptions = [
 
 export default function CategoryFilters({ active, filter, categories, tags }) {
   const [open, setOpen] = useState(false);
+  const { query } = useRouter();
+  const setFilterOnLoad = () => {
+    Object.keys(query).map(async (key) => {
+      try {
+        console.log("router", key, query[key]);
+        const res = await filter[key](query[key]);
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  };
+  useEffect(() => {
+    setFilterOnLoad();
+  }, [query]);
 
   const filters2 = [
     {
@@ -51,13 +67,14 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
     },
   ];
   const activeFilters = Object.entries(active)
-    .map((act) => {
+    .map((act, idx) => {
       if (act[1].length === 0) return null;
       return {
         value: act[0],
         label: act[1],
         close: () => {
           //   filter["reset"]();
+
           filter[act[0]]("");
         },
       };
@@ -343,14 +360,17 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
 
             <div className="mt-2 sm:mt-0 sm:ml-4">
               <div className="flex flex-wrap items-center -m-1">
-                {activeFilters.map((activeFilter) => (
+                {activeFilters.map((activeFilter, index) => (
                   <span
                     key={activeFilter.value}
                     className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900"
                   >
                     <span>{activeFilter.label}</span>
                     <button
-                      onClick={() => {
+                      onClick={async () => {
+                        if (index === 0) {
+                          await filter.getNewProducts();
+                        }
                         activeFilter.close();
                       }}
                       type="button"

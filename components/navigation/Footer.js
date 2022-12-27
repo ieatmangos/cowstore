@@ -10,8 +10,10 @@ const links = [
 
 const navigation = {
   meat: [
-    { name: "Cow", href: "/store/cow" },
-    { name: "Lamb", href: "/store/lamb" },
+    { name: "Beef", href: "/collections/beef" },
+    { name: "Lamb", href: "/collections/lamb" },
+    { name: "Cuts", href: "/collections/cuts" },
+    { name: "Butcher Boxes", href: "/collections/butcher-boxes" },
   ],
   feedback: [
     // { name: "Learn about our farms", href: "#" },

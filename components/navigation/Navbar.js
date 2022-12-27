@@ -89,8 +89,10 @@ const navigation = {
   ],
   pages: [
     // { name: "How it works", href: "#" },
-    { name: "Beef", href: "/store/cow" },
-    { name: "Lamb", href: "/store/lamb" },
+    { name: "Beef", href: "/collections/beef" },
+    // { name: "Lamb", href: "/collections/lamb" },
+    { name: "Cuts", href: "/collections/cuts" },
+    { name: "Butcher Boxes", href: "/collections/butcher-boxes" },
     // { name: "Beef", href: "/store/beef" },
     { name: "About", href: "/about" },
   ],

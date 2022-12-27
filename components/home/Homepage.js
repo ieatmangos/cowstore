@@ -3,7 +3,8 @@ import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
 import ProjectMarquee from "@components/ui/marquee/ProjectMarquee";
 import Image from "next/image";
 import { Feature1 } from "@components/features";
-import Cow from "@components/ui/cow";
+import Cow, { ShopButtonCow } from "@components/ui/cow";
+import CollectionsPage from "@components/search/CollectionsPage";
 
 const offers = [
   {
@@ -124,82 +125,79 @@ export default function Homepage({ products, categories, reviews }) {
                       <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                         <div className="flex items-center space-x-6 lg:space-x-8">
                           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100">
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100 bg-teal-300/25">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
                                 src="/assets/steak/1.jpg"
-                                alt="Cuts of beef"
                                 className="object-cover object-center w-full h-full "
                               />
                             </div>
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44">
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/40">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
                                 src="/assets/steak/2.jpg"
-                                alt="Cuts of beef"
                                 className="object-cover object-center w-full h-full "
                               />
                             </div>
                           </div>
                           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="relative h-64 overflow-hidden rounded-lg realtive w-44 ">
+                            <div className="relative h-64 overflow-hidden rounded-lg realtive w-44 bg-teal-300/30">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
                                 src="/assets/steak/3.jpg"
-                                alt="Cuts of beef"
                                 className="object-cover object-center w-full h-full "
                               />
                             </div>
-                            <div className="relative h-64 overflow-hidden delay-1000 rounded-lg w-44 ">
+
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/40">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
                                 src="/assets/steak/4.jpg"
-                                alt="Cuts of beef"
-                                className="object-cover object-center w-full h-full "
+                                className="object-cover object-center "
                               />
                             </div>
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 ">
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/25">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
                                 src="/assets/steak/5.jpg"
-                                alt="Cuts of beef"
-                                className="object-cover object-center w-full h-full "
+                                className="object-cover object-center "
                               />
                             </div>
                           </div>
                           <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44">
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/50">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
                                 src="/assets/steak/6.jpg"
-                                alt="Cuts of beef"
-                                className="object-cover object-center w-full h-full "
+                                className="object-cover object-center "
                               />
                             </div>
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44">
+                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/10">
                               <Image
+                                // placeholder="blur"
+                                // blurDataURL={rgbDataURL(153, 246, 228)}
                                 layout="fill"
-                                src="/assets/steak/7.jpg"
-                                alt="Cuts of beef"
-                                className="object-cover object-center w-full h-full "
+                                src="/assets/steak/12.jpg"
+                                className="object-cover object-center "
                               />
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className={`relative `}>
-                      <div className={`absolute inset-0 -top-16`}>
-                        <Cow />
-                      </div>
-                      <div className={`relative`}>
-                        <Link href="/store">
-                          <div className="inline-block px-8 py-3 font-medium text-center text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-200">
-                            Shop
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
+                    <ShopButtonCow />
                   </div>
                 </div>
               </div>
@@ -231,7 +229,7 @@ export default function Homepage({ products, categories, reviews }) {
               <img
                 src="/assets/homepage-hero.jpeg"
                 alt=""
-                className="object-cover object-center w-full h-full"
+                className="object-cover object-center "
               />
               <div className="flex flex-col items-center justify-center w-full h-full bg-rose-300/25 ">
                 <Logo color={'rose'} />
@@ -255,7 +253,7 @@ export default function Homepage({ products, categories, reviews }) {
               >
                 Trending products
               </h2>
-              <Link href={`store`}>
+              <Link href={`/collections/products`}>
                 <div className="hidden text-sm font-semibold text-gray-700 hover:text-gray-900 sm:block">
                   See everything
                   <span aria-hidden="true"> &rarr;</span>
@@ -323,7 +321,8 @@ export default function Homepage({ products, categories, reviews }) {
           {/* Decorative background image and gradient */}
           <div aria-hidden="true" className="absolute inset-0">
             <div className="absolute inset-0 mx-auto overflow-hidden max-w-7xl xl:px-8">
-              <img
+              <Image
+                layout="fill"
                 src="/assets/steak/steak-grid-2.png"
                 alt=""
                 className="object-cover object-center w-full h-full"
@@ -343,11 +342,13 @@ export default function Homepage({ products, categories, reviews }) {
                 id="sale-heading"
                 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
               >
-                Butcher Shop in the Basement
+                Become Your Own Butcher Shop
               </h2>
               <p className="max-w-xl mx-auto mt-4 mb-12 text-xl text-gray-600">
-                Enjoy convenience, quality, and freshness with our carefully
-                sourced meat, butchered to order. Feast like a carnivore!
+                Check protein off your grocery list, steak is on the menu! Cow
+                Store is about bridging a new supply chain, connecting VT farms
+                to your door. Feast like a carnivore from Cows you can visit in
+                the pastures they are raised!
               </p>
               <Link href="/shop">
                 <div className="inline-block px-8 py-3 font-medium text-center text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-200">
@@ -400,8 +401,11 @@ export default function Homepage({ products, categories, reviews }) {
             </div>
           </section>
         </div>
+        <section aria-label="Collections" className="bg-gray-200">
+          <CollectionsPage useH3 categories={categories} />
+        </section>
         {/* Promo */}
-        <section aria-labelledby="sale-heading" className="">
+        <section aria-label="sale-heading" className="">
           <Feature1 />
         </section>
       </main>
@@ -491,9 +495,9 @@ export default function Homepage({ products, categories, reviews }) {
           </div>
         </div>
       </section> */}
-      <div className={`h-screen`}>
+      {/* <div className={`h-screen`}>
         <SplitImageCategoryPreview categories={categories} />
-      </div>
+      </div> */}
     </div>
   );
 }

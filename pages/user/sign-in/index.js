@@ -4,9 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
+import { useModal } from "@lib/context/ModalContext";
+import RedirectMessage from "@components/user-accounts/auth/RedirectMessage";
 
 export default function SignUp() {
   const router = useRouter();
+  const { setRedirect, redirect } = useModal();
+
   const [newAccount, setNewAccount] = useState(defaultAccount);
 
   const [hasError, setHasError] = useState(false);
@@ -15,7 +19,12 @@ export default function SignUp() {
     setHasError(false);
     const [act, error] = await login(newAccount);
     if (act && !error) {
-      router.push("/user");
+      if (redirect) {
+        router.push(redirect);
+        setRedirect(null);
+      } else {
+        router.push("/user");
+      }
     }
     if (error) {
       setHasError(true);
@@ -139,6 +148,7 @@ export default function SignUp() {
                     Log In
                   </button>
                 </div>
+                <RedirectMessage />
               </form>
               {hasError && (
                 <p className={`pt-6 text-rose-600`}>

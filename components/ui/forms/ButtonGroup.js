@@ -46,8 +46,12 @@ export default function ButtonGroup({
               className={`
               ${itemIdx === 0 ? "rounded-l-md" : "-ml-px"}
               ${itemIdx === _list.length - 1 ? "rounded-r-md" : ""}
-              ${formik.values[id] === item.id ? "bg-teal-100 " : ""}
-              relative inline-flex items-center px-4 py-2  text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500`}
+              ${
+                formik.values[id] === item.id
+                  ? "bg-teal-100 "
+                  : "hover:bg-gray-50"
+              }
+              relative inline-flex items-center px-4 py-2  text-sm font-medium text-gray-700 bg-white border border-gray-300  focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500`}
             >
               {item.label}
             </button>

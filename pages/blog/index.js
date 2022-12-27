@@ -54,7 +54,7 @@ export default function Blog({ blogs }) {
                       <p>{description}</p>
                     </div>
                     <dl
-                      className={`absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]`}
+                      className={`absolute  left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]`}
                     >
                       <dt className={`sr-only`}>Date</dt>
                       <dd className={`whitespace-nowrap text-sm leading-6 `}>
@@ -92,7 +92,7 @@ export async function getStaticProps() {
     props: {
       blogs: !blogs ? [] : blogs.results,
     },
-    revalidate: 5,
+    revalidate: 5000,
   };
   return staticProps;
 }

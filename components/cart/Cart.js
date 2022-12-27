@@ -8,6 +8,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import EmptyCartSuggestions from "./EmptyCartSuggestions";
 import { useRouter } from "next/router";
+import PurchaseOptions from "@components/product/Options";
 // const EmptyCartSuggestions = dynamic(() => import("./EmptyCartSuggestions"), {
 //   ssr: false,
 // });
@@ -23,6 +24,7 @@ export default function Cart() {
     setOpen(false);
     // handleSubmit
   };
+  console.log(cart);
 
   return (
     <>
@@ -31,11 +33,13 @@ export default function Cart() {
         onClick={() => {
           setOpen((c) => !c);
         }}
-        className="flex items-center p-2 -m-2 group"
+        className={`flex items-center p-2 -m-2 group
+     sticky top-0
+        `}
       >
         <ShoppingCartIcon
           className={`flex-shrink-0 w-6 h-6  group-hover:text-gray-500
-          ${emptyCart ? "text-gray-400" : "text-teal-900 fill-teal-300"}
+          ${emptyCart ? "text-gray-400" : " text-teal-900 fill-teal-300"}
           `}
           aria-hidden="true"
         />
@@ -108,10 +112,12 @@ export default function Cart() {
                                 id,
                                 quantity,
                                 priceTotal,
+                                purchaseOption,
+                                options,
                               } = item;
                               return (
                                 <li
-                                  key={product.id}
+                                  key={product.id + productIdx}
                                   className="flex py-8 text-sm sm:items-center"
                                 >
                                   <div className={`relative w-24 h-24`}>
@@ -129,9 +135,38 @@ export default function Cart() {
                                           {product.name}
                                         </a>
                                       </h3>
-                                      {/* <p className="mt-1 text-gray-500">
-                                    {product.color}
-                                  </p> */}
+                                      <p className="mt-1 text-gray-500">
+                                        {options.map((i) => {
+                                          return (
+                                            <span key={i.id}>
+                                              {i.value} {i.name}{" "}
+                                              <span className={`block`}>
+                                                {i.shipmentWeight} lbs
+                                              </span>
+                                            </span>
+                                          );
+                                        })}
+                                      </p>
+                                      <p className="mt-1 text-gray-500">
+                                        {purchaseOption.type === "subscription"
+                                          ? "Subscription"
+                                          : null}
+                                      </p>
+                                      {purchaseOption.type ===
+                                      "subscription" ? (
+                                        <p className="mt-1 text-gray-500">
+                                          Deliver every{" "}
+                                          {
+                                            purchaseOption.billingSchedule
+                                              .intervalCount
+                                          }{" "}
+                                          month
+                                          {purchaseOption.billingSchedule
+                                            .intervalCount > 1
+                                            ? "s"
+                                            : ""}
+                                        </p>
+                                      ) : null}
                                     </div>
                                     <p className="row-span-2 row-end-2 font-medium text-gray-900 sm:order-1 sm:ml-6 sm:w-1/3 sm:flex-none sm:text-right">
                                       {formatMoney(priceTotal)}
