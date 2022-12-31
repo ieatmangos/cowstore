@@ -98,9 +98,7 @@ export default function Hero() {
                             // width={264}
                             // height={256}
                             fill
-                            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                            sizes="256px"
                             className={`object-cover`}
                             alt="Cow Store Steak"
                             src="/assets/steak/2.jpg"
@@ -116,9 +114,7 @@ export default function Hero() {
                             // width={264}
                             // height={256}
                             fill
-                            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              20vw"
+                            sizes="256px"
                             className={`object-cover`}
                             priority={true}
                             as="image"
@@ -134,9 +130,7 @@ export default function Hero() {
                             // width={264}
                             // height={256}
                             fill
-                            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                            sizes="256px"
                             className={`object-cover`}
                             alt="Cow Store Steak"
                             src="/assets/steak/4.jpg"
@@ -150,10 +144,7 @@ export default function Hero() {
                             // width={264}
                             // height={256}
                             fill
-                            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                            className={`object-cover`}
+                            sizes="256px"
                             alt="Cow Store Steak"
                             src="/assets/steak/5.jpg"
                             className="object-cover object-center w-full h-full"
@@ -167,10 +158,7 @@ export default function Hero() {
                             // blurDataURL={rgbDataURL(153, 246, 228)}
                             // width={256}
                             fill
-                            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                            className={`object-cover`}
+                            sizes="256px"
                             alt="Cow Store Steak"
                             // height={256}
                             src="/assets/steak/6.jpg"
@@ -184,10 +172,7 @@ export default function Hero() {
                             // width={264}
                             // height={256}
                             fill
-                            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                            className={`object-cover`}
+                            sizes="256px"
                             alt="Cow Store Steak"
                             src="/assets/steak/12.jpg"
                             className="object-cover object-center w-full h-full"
