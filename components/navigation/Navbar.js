@@ -23,7 +23,8 @@ import {
 import cn from "@utils/cn";
 import Link from "next/link";
 import Logo from "@components/ui/Logo";
-import Cart from "@components/cart/Cart";
+import dynamic from "next/dynamic";
+const Cart = dynamic(() => import("@components/cart/Cart"), { ssr, false });
 
 const navigation = {
   categories: [
