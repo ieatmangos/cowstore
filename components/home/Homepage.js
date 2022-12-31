@@ -52,7 +52,7 @@ export default function Homepage({ products, categories, reviews }) {
         <Hero />
 
         {/* Trending products marquee */}
-        <section
+        {/* <section
           aria-labelledby="trending-heading"
           className="relative z-10 bg-gradient-to-b from-gray-50 to-white"
         >
@@ -88,52 +88,15 @@ export default function Homepage({ products, categories, reviews }) {
           </div>
         </section>
 
-        {/* Collections */}
-        {/* <section aria-labelledby="collections-heading" className="bg-white">
-          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="max-w-2xl py-16 mx-auto sm:py-24 lg:max-w-none lg:py-32">
-              <h2
-                id="collections-heading"
-                className="text-2xl font-bold text-gray-900"
-              >
-                Farms
-              </h2>
-
-              <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-                {products &&
-                  products.brands &&
-                  products.brands.slice(0, 4).map((collection: any) => (
-                    <div key={collection.name} className="relative group">
-                      <div className="relative w-full overflow-hidden bg-white rounded-lg h-80 group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                        <img
-                          src={collection.imageSrc}
-                          alt={collection.imageAlt}
-                          className="object-cover object-center w-full h-full"
-                        />
-                      </div>
-                      <h3 className="mt-6 text-sm text-gray-500">
-                        <a href={collection.href}>
-                          <span className="absolute inset-0" />
-                          {collection.name}
-                        </a>
-                      </h3>
-                      <p className="text-base font-semibold text-gray-900">
-                        {collection.description}
-                      </p>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
-        </section> */}
+         */}
 
         {/* Sale and testimonials */}
-        <Testimonials reviews={reviews} />
+        {/* <Testimonials reviews={reviews} /> */}
 
         {/* Collections */}
-        <section aria-label="Collections" className="bg-gray-100">
+        {/* <section aria-label="Collections" className="bg-gray-100">
           <CollectionsPage useH3 categories={categories} />
-        </section>
+        </section> */}
 
         {/* Promo */}
         {/* <section aria-label="sale-heading" className="">
