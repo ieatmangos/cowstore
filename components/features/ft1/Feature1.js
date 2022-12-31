@@ -8,8 +8,7 @@ import {
   CheckBadgeIcon,
   TruckIcon,
 } from "@heroicons/react/24/outline";
-import dynamic from "next/dynamic";
-const ConsumeBeef = dynamic(() => import("./ConsumeBeef"), { ssr: false });
+import ConsumeBeef from "./ConsumeBeef";
 
 const transferFeatures = [
   {
