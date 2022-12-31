@@ -342,7 +342,7 @@ export default function Navbar() {
               </form> */}
 
               <p className="flex-1 text-sm font-medium text-center text-teal-900 lg:flex-none">
-                Vermont beef, delivered FREE to the Northeast!
+                Vermont beef for Sale!
               </p>
 
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -369,8 +369,8 @@ export default function Navbar() {
                   {/* Logo (lg+) */}
                   <div className="hidden lg:flex lg:items-center">
                     <span className="sr-only">Cow Store</span>
-                    <Link href="/">
-                      <Logo className={`h-8`} color="teal" />
+                    <Link aria-label="Go home" href="/">
+                      <Logo className={`h-8`} color="teal" />{" "}
                     </Link>
                   </div>
 

@@ -110,7 +110,7 @@ export default function CollectionsPage(props) {
                     <p className="block mt-2 text-sm font-medium text-gray-900 truncate pointer-events-none">
                       {file.name}
                     </p>
-                    <p className="block text-sm font-medium text-gray-500 pointer-events-none">
+                    <p className="block text-sm font-medium text-gray-600 pointer-events-none">
                       {file.description
                         .replace(/&#39;/g, "'")
                         .replace(/&quot;/g, '"')
