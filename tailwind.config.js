@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter-regular", ...defaultTheme.fontFamily.sans],
+        title: ["Inter-bold", ...defaultTheme.fontFamily.sans],
       },
       animation: {
         marquee: "marquee 30s linear infinite",
