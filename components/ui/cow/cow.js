@@ -35,15 +35,15 @@ const getExcited = (evt) => {
   }
 
   // move eyes
-  const eye1 = document.getElementById("eye-left-detail1");
-  const eye2 = document.getElementById("eye-right-detail1");
+  // const eye1 = document.getElementById("eye-left-detail1");
+  // const eye2 = document.getElementById("eye-right-detail1");
 
-  if (eye1) {
-    eye1.style.transform = `trasnlateY(-4px) translateX(0px)`;
-  }
-  if (eye2) {
-    eye2.style.transform = `trasnlateY(-4px) translateX(0px)`;
-  }
+  // if (eye1) {
+  //   eye1.style.transform = `translateY(-42px)`;
+  // }
+  // if (eye2) {
+  //   eye2.style.transform = `translateY(-42px)`;
+  // }
 };
 
 const reset = (evt) => {
@@ -63,13 +63,13 @@ const reset = (evt) => {
   }
 
   // move eyes
-  const eye1 = document.getElementById("eye-left-detail1");
+  const eye1 = document.getElementById("eye-right-detail1");
   const eye2 = document.getElementById("eye-right-detail1");
   if (eye1) {
-    eye1.style.transform = `trasnlateY(-4px) translateX(0px)`;
+    eye1.style.transform = `translateY(0px) translateX(0px)`;
   }
   if (eye2) {
-    eye2.style.transform = `trasnlateY(-4px) translateX(0px)`;
+    eye2.style.transform = `translateY(0px) translateX(0px)`;
   }
 };
 
@@ -90,22 +90,31 @@ export default function Cow({ hov }) {
   }, [hov]);
 
   return (
-    <div id="cow-wrapper" className={`${styles["cow"]} ds-ease`}>
+    <div
+      id="cow-wrapper"
+      className={`transition-transform duration-400 ease-out ${styles["cow"]} ds-ease`}
+    >
       <div className={`${styles["head"]}`}>
         <div className={`${styles["face"]}`}>
           <div className={`${styles["horns"]}`}>
-            <div className={`${styles["horn-left"]}`}></div>
-            <div className={`${styles["horn-right"]}`}></div>
+            <div className={` ${styles["horn-left"]}`}></div>
+            <div className={` ${styles["horn-right"]}`}></div>
           </div>
           <div className={`${styles["ears"]}`}>
-            <div id={"ear-left"} className={`${styles["ear-left"]}`}>
+            <div
+              id={"ear-left"}
+              className={`transition-transform duration-200 ${styles["ear-left"]}`}
+            >
               <div className={`${styles["ear-left-detail"]}`}></div>
             </div>
-            <div id={"ear-right"} className={`${styles["ear-right"]}`}>
+            <div
+              id={"ear-right"}
+              className={`transition-transform duration-400 ${styles["ear-right"]}`}
+            >
               <div className={`${styles["ear-right-detail"]}`}></div>
             </div>
           </div>
-          <div className={`${styles["eyes"]}`}>
+          <div id="cow-eyes" className={`${styles["eyes"]}`}>
             <div className={`${styles["eye-left"]}`}>
               <div
                 id="eye-left-detail1"

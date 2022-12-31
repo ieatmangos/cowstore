@@ -97,9 +97,9 @@ export default function Homepage({ products, categories, reviews }) {
         </section>
 
         {/* Promo */}
-        {/* <section aria-label="sale-heading" className="">
+        <section aria-label="sale-heading" className="">
           <Feature1 />
-        </section> */}
+        </section>
       </main>
 
       {/* <section aria-labelledby="sale-heading">

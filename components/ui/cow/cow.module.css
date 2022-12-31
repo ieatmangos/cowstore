@@ -23,6 +23,12 @@
   height: 90px;
 }
 
+.eyes {
+}
+.ears {
+}
+.horns {
+}
 .horn-left {
   background: #b0b0b0;
   width: 10px;
@@ -109,11 +115,11 @@
 
 .eye-left {
   background: white;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   position: relative;
-  top: -70px;
-  left: -5px;
+  top: -66px;
+  left: 0px;
   float: left;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -122,8 +128,8 @@
 
 .eye-left-detail1 {
   background: black;
-  width: 23px;
-  height: 23px;
+  width: 15px;
+  height: 15px;
   position: relative;
   top: 0px;
   left: 0px;
@@ -138,11 +144,11 @@
 
 .eye-left-detail2 {
   background: white;
-  width: 7px;
-  height: 7px;
+  width: 4px;
+  height: 4px;
   position: relative;
   top: 4px;
-  left: 12px;
+  left: 8px;
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
@@ -154,7 +160,7 @@
   height: 35px;
   position: relative;
   top: -66px;
-  left: -5px;
+  left: 0px;
   float: left;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;

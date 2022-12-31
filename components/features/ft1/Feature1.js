@@ -8,7 +8,8 @@ import {
   CheckBadgeIcon,
   TruckIcon,
 } from "@heroicons/react/24/outline";
-import ConsumeBeef from "./ConsumeBeef";
+import dynamic from "next/dynamic";
+const ConsumeBeef = dynamic(() => import("./ConsumeBeef"), { ssr: false });
 
 const transferFeatures = [
   {
@@ -116,12 +117,12 @@ export default function Feature1() {
               {transferFeatures.map((item) => (
                 <div key={item.id} className="relative">
                   <dt>
-                    <div className="absolute flex items-center justify-center w-12 h-12 text-white bg-teal-500 rounded-xl">
+                    <span className="absolute flex items-center justify-center w-12 h-12 text-white bg-teal-500 rounded-xl">
                       <item.icon className="w-8 h-8" aria-hidden="true" />
-                    </div>
-                    <p className="ml-16 text-lg font-medium leading-6 text-gray-900">
+                    </span>
+                    <span className="ml-16 text-lg font-medium leading-6 text-gray-900">
                       {item.name}
-                    </p>
+                    </span>
                   </dt>
                   <dd className="mt-2 ml-16 text-base text-gray-500">
                     {item.description}
@@ -226,12 +227,12 @@ export default function Feature1() {
                 {communicationFeatures.map((item) => (
                   <div key={item.id} className="relative">
                     <dt>
-                      <div className="absolute flex items-center justify-center w-12 h-12 text-white bg-teal-500 rounded-xl">
+                      <span className="absolute flex items-center justify-center w-12 h-12 text-white bg-teal-500 rounded-xl">
                         <item.icon className="w-8 h-8" aria-hidden="true" />
-                      </div>
-                      <p className="ml-16 text-lg font-medium leading-6 text-gray-900">
+                      </span>
+                      <span className="ml-16 text-lg font-medium leading-6 text-gray-900">
                         {item.name}
-                      </p>
+                      </span>
                     </dt>
                     <dd className="mt-2 ml-16 text-base text-gray-500">
                       {item.description}
