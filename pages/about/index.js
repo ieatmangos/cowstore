@@ -112,7 +112,7 @@ function ContentSectionTwoColumnsTestimonial() {
             </div>
             <div className="flex mx-auto mt-10 text-base max-w-prose lg:max-w-none">
               <div className="rounded-md shadow">
-                <Link href={`/store`}>
+                <Link href={`/collections/products`}>
                   <div className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white bg-teal-600 border border-transparent rounded-md hover:bg-teal-700">
                     Shop
                   </div>

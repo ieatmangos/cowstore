@@ -25,12 +25,12 @@ export default function Homepage({ products, categories, reviews }) {
               >
                 Trending products
               </h2>
-              <Link href={`/collections/products`}>
-                <div className="hidden text-sm font-semibold text-gray-700 hover:text-gray-900 sm:block">
+              <div className="hidden text-sm font-semibold text-gray-700 hover:text-gray-900 sm:block">
+                <Link href={`/collections/products`}>
                   See everything
                   <span aria-hidden="true"> &rarr;</span>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
 
             <div className="relative mt-8">
@@ -38,13 +38,15 @@ export default function Homepage({ products, categories, reviews }) {
             </div>
 
             <div className="px-4 mt-12 sm:hidden">
-              <a
-                href="#"
-                className="text-sm font-semibold text-teal-600 hover:text-teal-500"
+              <Link
+                aria-label="View all trending products"
+                href="/collections/products"
               >
-                See everything
-                <span aria-hidden="true"> &rarr;</span>
-              </a>
+                <div className="text-sm font-semibold text-teal-600 hover:text-teal-500">
+                  View all trending products
+                  <span aria-hidden="true"> &rarr;</span>
+                </div>
+              </Link>
             </div>
           </div>
         </section>

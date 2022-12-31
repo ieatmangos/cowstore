@@ -590,7 +590,10 @@ export default function Navbar() {
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
-                          <Link href="/store">
+                          <Link
+                            aria-label="Search products"
+                            href="/collections/products"
+                          >
                             <div className="p-2 -m-2 text-gray-400 hover:text-gray-500">
                               <span className="sr-only">Search</span>
                               <MagnifyingGlassIcon
