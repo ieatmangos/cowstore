@@ -92,9 +92,9 @@ export default function Homepage({ products, categories, reviews }) {
         <Testimonials reviews={reviews} />
 
         {/* Collections */}
-        {/* <section aria-label="Collections" className="bg-gray-100">
+        <section aria-label="Collections" className="bg-gray-100">
           <CollectionsPage useH3 categories={categories} />
-        </section> */}
+        </section>
 
         {/* Promo */}
         {/* <section aria-label="sale-heading" className="">

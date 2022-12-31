@@ -89,7 +89,7 @@ export default function Hero() {
                         <div className="relative h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100 bg-teal-300/25">
                           <Image
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             priority={true}
                             as="image"
@@ -101,10 +101,10 @@ export default function Hero() {
                           <Image
                             // placeholder="blur"
                             // blurDataURL={rgbDataURL(153, 246, 228)}
-                            // width={176}
+                            // width={264}
                             // height={256}
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             src="/assets/steak/2.jpg"
                             className="object-cover object-center w-full h-full "
@@ -117,10 +117,10 @@ export default function Hero() {
                             // placeholder="blur"
                             // blurDataURL={rgbDataURL(153, 246, 228)}
 
-                            // width={176}
+                            // width={264}
                             // height={256}
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             src="/assets/steak/3.jpg"
                             className="object-cover object-center w-full h-full "
@@ -131,10 +131,10 @@ export default function Hero() {
                           <Image
                             // placeholder="blur"
                             // blurDataURL={rgbDataURL(153, 246, 228)}
-                            // width={176}
+                            // width={264}
                             // height={256}
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             src="/assets/steak/4.jpg"
                             className="object-cover object-center w-full h-full"
@@ -144,10 +144,10 @@ export default function Hero() {
                           <Image
                             // placeholder="blur"
                             // blurDataURL={rgbDataURL(153, 246, 228)}
-                            // width={176}
+                            // width={264}
                             // height={256}
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             src="/assets/steak/5.jpg"
                             className="object-cover object-center w-full h-full"
@@ -161,7 +161,7 @@ export default function Hero() {
                             // blurDataURL={rgbDataURL(153, 246, 228)}
                             // width={256}
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             // height={256}
                             src="/assets/steak/6.jpg"
@@ -172,10 +172,10 @@ export default function Hero() {
                           <Image
                             // placeholder="blur"
                             // blurDataURL={rgbDataURL(153, 246, 228)}
-                            // width={176}
+                            // width={264}
                             // height={256}
                             fill
-                            sizes="176px"
+                            sizes="264px"
                             alt="Cow Store Steak"
                             src="/assets/steak/12.jpg"
                             className="object-cover object-center w-full h-full"
