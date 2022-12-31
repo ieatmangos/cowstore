@@ -52,7 +52,7 @@ export default function Homepage({ products, categories, reviews }) {
         <Hero />
 
         {/* Trending products marquee */}
-        {/* <section
+        <section
           aria-labelledby="trending-heading"
           className="relative z-10 bg-gradient-to-b from-gray-50 to-white"
         >
@@ -87,8 +87,6 @@ export default function Homepage({ products, categories, reviews }) {
             </div>
           </div>
         </section>
-
-         */}
 
         {/* Sale and testimonials */}
         {/* <Testimonials reviews={reviews} /> */}
