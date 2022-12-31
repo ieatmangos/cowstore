@@ -340,7 +340,7 @@ export default function Navbar() {
               </form> */}
 
               <p className="flex-1 text-sm font-medium text-center text-teal-900 lg:flex-none">
-                Vermont beef for Sale!
+                Vermont beef for sale!
               </p>
 
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
