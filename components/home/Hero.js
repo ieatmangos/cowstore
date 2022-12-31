@@ -138,7 +138,6 @@ export default function Hero() {
                             sizes="25vw"
                             fill // width={176}
                             // height={256}
-                            className={`object-cover`}
                             alt="Cow Store Steak"
                             src="/assets/steak/4.jpg"
                             className="object-cover object-center w-full h-full"
