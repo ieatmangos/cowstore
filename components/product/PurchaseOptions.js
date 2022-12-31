@@ -79,7 +79,6 @@ export default function PurchaseOptions({ product, inStockOptions }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(product.id, values.purchase_option);
     if (values.purchase_option) {
       add({
         id: product.id,
@@ -91,14 +90,10 @@ export default function PurchaseOptions({ product, inStockOptions }) {
     }
   };
 
-  console.log(values);
-  // console.log(price);
-
   return (
     <>
       <>
         {product.options.map((option, optionIdx) => {
-          console.log(option);
           if (!option.active) return null;
           return (
             <div key={option + "product_options"}>
@@ -132,7 +127,6 @@ export default function PurchaseOptions({ product, inStockOptions }) {
                   </RadioGroup.Label>
                   <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                     {option.values.map((size) => {
-                      // console.log(size);
                       size.inStock = inStockOptions[size.id];
                       return (
                         <RadioGroup.Option
@@ -188,7 +182,6 @@ export default function PurchaseOptions({ product, inStockOptions }) {
                 list={subscriptionPlans}
                 id="plan_id"
                 change={(obj) => {
-                  console.log(obj);
                   set("purchase_option", {
                     ...values.purchase_option,
                     plan_id: obj.id,

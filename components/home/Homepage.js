@@ -5,24 +5,8 @@ import Image from "next/image";
 import { Feature1 } from "@components/features";
 import Cow, { ShopButtonCow } from "@components/ui/cow";
 import CollectionsPage from "@components/search/CollectionsPage";
-
-const offers = [
-  {
-    name: "Taste the difference",
-    description: "Better flavor and quality",
-    href: "#",
-  },
-  {
-    name: "Buy in bulk",
-    description: "Stock up on your favorite cuts",
-    href: "#",
-  },
-  {
-    name: "Free Delivery",
-    description: "In the Northeast",
-    href: "#",
-  },
-];
+import Hero from "./Hero";
+import Testimonials from "./Testimonials";
 
 const testimonials = [
   {
@@ -65,182 +49,9 @@ export default function Homepage({ products, categories, reviews }) {
     <div className="bg-white">
       <main>
         {/* Hero */}
-        <div className="flex flex-col border-b border-gray-200 lg:border-0">
-          <div
-            aria-label="Offers"
-            className="relative z-10 order-last lg:order-first"
-          >
-            <div className="mx-auto lg:px-8">
-              <ul
-                role="list"
-                className="grid grid-cols-1 border-gray-200 divide-y divide-gray-200 border-y lg:grid-cols-3 lg:divide-y-0 lg:divide-x"
-              >
-                {offers.map((offer) => (
-                  <li
-                    key={offer.name}
-                    className="flex flex-col bg-white lg:bg-white/75 lg:backdrop-blur"
-                  >
-                    <div className="relative flex flex-col justify-center flex-1 px-4 py-6 text-center focus:z-10">
-                      <p className="text-sm text-gray-500">{offer.name}</p>
-                      <p className="font-semibold text-gray-900">
-                        {offer.description}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <Hero />
 
-          <div className="relative overflow-hidden ">
-            {/* <div
-              aria-hidden="true"
-              className="absolute hidden w-1/2 h-full bg-gray-50 lg:block"
-            /> */}
-
-            <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-              <div className="relative px-4 mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
-                <div className="sm:max-w-lg">
-                  <h1 className="text-4xl font-bold tracking-tight text-gray-900 font sm:text-6xl">
-                    Fill Your Freezer
-                  </h1>
-                  {/* <p className="mt-4 text-xl text-gray-500">
-                    Vermont farmers supplying bulk orders of pasture raised beef
-                    and lamb to homes in New Hampshire, Maine, Massachucessets,
-                    and New York.
-                  </p> */}
-                  <p className="mt-4 text-xl text-gray-500">
-                    Farmers marketplace connecting Vermont pastures and
-                    neighbors homes. Free delivery in New York, New Hampshire,
-                    Maine, Massachucessets, New Jersey.
-                  </p>
-                </div>
-                <div>
-                  <div className="mt-24">
-                    {/* Decorative image grid */}
-                    <div
-                      aria-hidden="true"
-                      className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
-                    >
-                      <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                        <div className="flex items-center space-x-6 lg:space-x-8">
-                          <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100 bg-teal-300/25">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/1.jpg"
-                                className="object-cover object-center w-full h-full "
-                              />
-                            </div>
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/40">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/2.jpg"
-                                className="object-cover object-center w-full h-full "
-                              />
-                            </div>
-                          </div>
-                          <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="relative h-64 overflow-hidden rounded-lg realtive w-44 bg-teal-300/30">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/3.jpg"
-                                className="object-cover object-center w-full h-full "
-                              />
-                            </div>
-
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/40">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/4.jpg"
-                                className="object-cover object-center "
-                              />
-                            </div>
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/25">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/5.jpg"
-                                className="object-cover object-center "
-                              />
-                            </div>
-                          </div>
-                          <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/50">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/6.jpg"
-                                className="object-cover object-center "
-                              />
-                            </div>
-                            <div className="relative h-64 overflow-hidden rounded-lg w-44 bg-teal-300/10">
-                              <Image
-                                // placeholder="blur"
-                                // blurDataURL={rgbDataURL(153, 246, 228)}
-                                layout="fill"
-                                src="/assets/steak/12.jpg"
-                                className="object-cover object-center "
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <ShopButtonCow />
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <div className="relative bg-gray-100 lg:bg-transparent">
-              <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:grid lg:grid-cols-2 lg:px-8">
-                <div className="max-w-2xl py-24 mx-auto lg:max-w-none lg:py-64">
-                  <div className="lg:pr-16">
-                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl">
-                      Feed your family
-                    </h1>
-                    <p className="mt-4 text-xl text-gray-600">
-                      Build a protein tresure chest ready for dinner. Our cows
-                      are born and raised in Vermont pastures by expert farmers.
-                    </p>
-                    <div className="mt-6">
-                      <a
-                        href="#"
-                        className="inline-block px-8 py-3 font-medium text-teal-900 bg-teal-200 border border-transparent rounded-md hover:bg-teal-300"
-                      >
-                        Enter Store
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-            {/* <div className="w-full h-48 sm:h-64 lg:absolute lg:top-0 lg:right-0 lg:h-full lg:w-1/2">
-              <img
-                src="/assets/homepage-hero.jpeg"
-                alt=""
-                className="object-cover object-center "
-              />
-              <div className="flex flex-col items-center justify-center w-full h-full bg-rose-300/25 ">
-                <Logo color={'rose'} />
-              </div>
-            </div> */}
-          </div>
-        </div>
-
-        {/* <AllProductLabels /> */}
-
-        {/* Trending products */}
+        {/* Trending products marquee */}
         <section
           aria-labelledby="trending-heading"
           className="relative z-10 bg-gradient-to-b from-gray-50 to-white"
@@ -317,97 +128,17 @@ export default function Homepage({ products, categories, reviews }) {
         </section> */}
 
         {/* Sale and testimonials */}
-        <div className="relative overflow-hidden">
-          {/* Decorative background image and gradient */}
-          <div aria-hidden="true" className="absolute inset-0">
-            <div className="absolute inset-0 mx-auto overflow-hidden max-w-7xl xl:px-8">
-              <Image
-                layout="fill"
-                src="/assets/steak/steak-grid-2.png"
-                alt=""
-                className="object-cover object-center w-full h-full"
-              />
-            </div>
-            <div className="absolute inset-0 bg-white bg-opacity-75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white" />
-          </div>
+        <Testimonials reviews={reviews} />
 
-          {/* Promo */}
-          <section
-            aria-labelledby="sale-heading"
-            className="relative flex flex-col items-center px-4 pt-32 mx-auto text-center max-w-7xl sm:px-6 lg:px-8"
-          >
-            <div className="max-w-2xl mx-auto lg:max-w-none">
-              <h2
-                id="sale-heading"
-                className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
-              >
-                Become Your Own Butcher Shop
-              </h2>
-              <p className="max-w-xl mx-auto mt-4 mb-12 text-xl text-gray-600">
-                Check protein off your grocery list, steak is on the menu! Cow
-                Store is about bridging a new supply chain, connecting VT farms
-                to your door. Feast like a carnivore from Cows you can visit in
-                the pastures they are raised!
-              </p>
-              <Link href="/shop">
-                <div className="inline-block px-8 py-3 font-medium text-center text-teal-900 bg-teal-300 border border-transparent rounded-md hover:bg-teal-200">
-                  Shop favorites
-                </div>
-              </Link>
-            </div>
-          </section>
-
-          {/* Testimonials */}
-          <section
-            aria-labelledby="testimonial-heading"
-            className="relative px-4 py-24 mx-auto max-w-7xl sm:px-6 lg:py-32 lg:px-8"
-          >
-            <div className="max-w-2xl mx-auto lg:max-w-none">
-              <h2
-                id="testimonial-heading"
-                className="text-2xl font-bold tracking-tight text-gray-900"
-              >
-                What are people saying?
-              </h2>
-
-              <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                {reviews.map((testimonial) => (
-                  <blockquote key={testimonial.id} className="sm:flex lg:block">
-                    <svg
-                      width={24}
-                      height={18}
-                      viewBox="0 0 24 18"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                      className="flex-shrink-0 text-gray-300"
-                    >
-                      <path
-                        d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <div className="mt-8 sm:mt-0 sm:ml-6 lg:mt-10 lg:ml-0">
-                      <p className="text-lg text-gray-600">
-                        {testimonial.comments}
-                      </p>
-                      <cite className="block mt-4 not-italic font-semibold text-gray-900">
-                        {testimonial.name}
-                      </cite>
-                    </div>
-                  </blockquote>
-                ))}
-              </div>
-            </div>
-          </section>
-        </div>
-        <section aria-label="Collections" className="bg-gray-200">
+        {/* Collections */}
+        <section aria-label="Collections" className="bg-gray-100">
           <CollectionsPage useH3 categories={categories} />
         </section>
+
         {/* Promo */}
-        <section aria-label="sale-heading" className="">
+        {/* <section aria-label="sale-heading" className="">
           <Feature1 />
-        </section>
+        </section> */}
       </main>
 
       {/* <section aria-labelledby="sale-heading">

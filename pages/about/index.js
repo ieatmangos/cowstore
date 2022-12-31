@@ -1,13 +1,28 @@
 import Logo from "@components/ui/Logo";
+import getServerBlogs from "@lib/swell/blogs/getServerBlogs";
+import { formatDate } from "@lib/utils";
 import Link from "next/link";
 import React from "react";
 
-export default function index() {
+export default function index({ blogs }) {
   return (
     <div className={``}>
       <ContentSectionTwoColumnsTestimonial />
+      <BlogExamples blogs={blogs} />
     </div>
   );
+}
+export async function getStaticProps() {
+  const blogs = await getServerBlogs({ limit: 4 });
+
+  // Generate static pages for each product
+  const staticProps = {
+    props: {
+      blogs: !blogs ? [] : blogs.results,
+    },
+    revalidate: 5000,
+  };
+  return staticProps;
 }
 
 function ContentSectionTwoColumnsTestimonial() {
@@ -183,6 +198,124 @@ function ContentSectionTwoColumnsTestimonial() {
               </cite>
             </blockquote>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/*
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+*/
+const posts = [
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    description:
+      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+    date: "Mar 16, 2020",
+    datetime: "2020-03-16",
+  },
+  {
+    title: "How to use search engine optimization to drive sales",
+    href: "#",
+    description:
+      "Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.",
+    date: "Mar 10, 2020",
+    datetime: "2020-03-10",
+  },
+  {
+    title: "Improve your customer experience",
+    href: "#",
+    description:
+      "Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis.",
+    date: "Feb 12, 2020",
+    datetime: "2020-02-12",
+  },
+  {
+    title: "Writing effective landing page copy",
+    href: "#",
+    description:
+      "Ipsum voluptates quia doloremque culpa qui eius. Id qui id officia molestias quaerat deleniti. Qui facere numquam autem libero quae cupiditate asperiores vitae cupiditate. Cumque id deleniti explicabo.",
+    date: "Jan 29, 2020",
+    datetime: "2020-01-29",
+  },
+];
+
+function BlogExamples({ blogs }) {
+  return (
+    <div className="px-4 pb-16 mx-auto mt-32 space-y-8 max-w-7xl sm:px-6 lg:px-8">
+      <div className="relative divide-y-2 divide-gray-200 ">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            The latest from our blog
+          </h2>
+          <div className="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-5">
+            <p className="text-xl text-gray-500">
+              Get an idea of what&apos;s going on at the farm.
+            </p>
+            {/* <form className="flex flex-col mt-6 sm:flex-row lg:mt-0 lg:justify-end">
+              <div>
+                <label htmlFor="email-address" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email-address"
+                  name="email-address"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="w-full px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md appearance-none focus:border-teal-500 focus:outline-none focus:ring-teal-500 lg:max-w-xs"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="flex flex-shrink-0 w-full mt-2 rounded-md shadow-sm sm:mt-0 sm:ml-3 sm:inline-flex sm:w-auto">
+                <button
+                  type="button"
+                  className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-teal-600 border border-transparent rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 sm:inline-flex sm:w-auto"
+                >
+                  Notify me
+                </button>
+              </div>
+            </form> */}
+          </div>
+        </div>
+        <div className="grid gap-16 pt-10 mt-6 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
+          {blogs.map((post) => (
+            <div key={post.title}>
+              <p className="text-sm text-gray-500">
+                <time dateTime={post.date_created}>
+                  {formatDate(post.date_created)}
+                </time>
+              </p>
+              <Link href={`/blog/${post.slug}`} className="block mt-2">
+                <p className="text-xl font-semibold text-gray-900">
+                  {post.title}
+                </p>
+                <p className="mt-3 text-base text-gray-500">
+                  {post.description}
+                </p>
+              </Link>
+              <div className="mt-3">
+                <Link href={`/blog/${post.slug}`}>
+                  <div className="text-base font-semibold text-teal-600 hover:text-teal-500">
+                    Read full story
+                  </div>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

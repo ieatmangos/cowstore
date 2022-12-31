@@ -1,5 +1,6 @@
 import Breadcrumbs from "@components/ui/breadcrumbs";
 import PageTitle from "@components/ui/PageTitle";
+import { MagnifyingGlassPlusIcon } from "@heroicons/react/20/solid";
 import {
   BookOpenIcon,
   LinkIcon,
@@ -20,15 +21,6 @@ const files = [
   // More files...
 ];
 export default function CollectionsPage(props) {
-  console.log(props);
-  const allCategories = [
-    {
-      name: "All Products",
-      description: "See everything we have to offer",
-      slug: "products",
-    },
-    ...props.categories,
-  ];
   return (
     <div className={``}>
       <Breadcrumbs />
@@ -37,9 +29,9 @@ export default function CollectionsPage(props) {
         title={"Collections"}
         msg={`This how we like to shop. Pick between your favorites.`}
       />
-      <div className="bg-gray-100">
+      <div className="bg-gray-200">
         <div className="px-4 py-3 mx-auto max-w-7xl sm:flex sm:items-center sm:px-6 lg:px-8">
-          <h3 className="text-sm font-medium text-gray-500">Categories</h3>
+          <h3 className="text-sm font-medium text-gray-700">Categories</h3>
 
           <div
             aria-hidden="true"
@@ -48,10 +40,10 @@ export default function CollectionsPage(props) {
 
           <div className="mt-2 sm:mt-0 sm:ml-4">
             <div className="flex flex-wrap items-center -m-1">
-              {allCategories.map((activeFilter) => (
+              {props.categories.map((activeFilter, idx) => (
                 <Link
                   href={`/collections/${activeFilter.slug}`}
-                  key={activeFilter.name}
+                  key={idx + "activeFilter.name"}
                 >
                   <span className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900">
                     <span>{activeFilter.name}</span>
@@ -62,7 +54,7 @@ export default function CollectionsPage(props) {
                       <span className="sr-only">
                         Explore {activeFilter.name}
                       </span>
-                      <MagnifyingGlassIcon className={`w-full h-full `} />
+                      <MagnifyingGlassPlusIcon className={`w-full h-full `} />
                     </button>
                   </span>
                 </Link>
@@ -76,11 +68,11 @@ export default function CollectionsPage(props) {
           role="list"
           className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
         >
-          {allCategories.map((file, idx) => (
+          {props.categories.map((file, idx) => (
             <li
-              key={file.source}
+              key={file.slug + idx}
               className={`${
-                idx === 0 ? "col-span-2 row-span-2 h-full flex flex-col" : ""
+                idx === 0 ? "col-span-1  h-full flex flex-col" : ""
               } relative`}
             >
               <Link href={`/collections/${file.slug}`}>
@@ -89,7 +81,7 @@ export default function CollectionsPage(props) {
                     className={`block w-full overflow-hidden bg-gray-100 bg-teal-100 rounded-lg group  focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 
                   ${
                     idx === 0
-                      ? "aspect-w-8 aspect-h-5 sm:aspect-h-10"
+                      ? "aspect-w-6 aspect-h-9"
                       : "aspect-w-6 aspect-h-9"
                   }
                   `}
@@ -101,7 +93,8 @@ export default function CollectionsPage(props) {
                           : "/assets/steak/4.jpg"
                       }
                       fill
-                      alt=""
+                      sizes="420px"
+                      alt={file.name}
                       className="object-cover pointer-events-none group-hover:opacity-75"
                     />
                     <button

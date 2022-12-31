@@ -33,8 +33,9 @@ function RecoverComponent() {
   const [hasError, setHasError] = useState(false);
   const handleClick = async (e) => {
     e.preventDefault();
+    const key = router.query.id;
     setHasError(false);
-    const [act, error] = await passwordReset(newAccount, recoverId);
+    const [act, error] = await passwordReset(newAccount, key);
     if (act && act.success) {
       toast.success(`Password changed ${newAccount.email}`);
       router.push("/user/sign-in");
@@ -73,7 +74,7 @@ function RecoverComponent() {
 
           <div className="mt-8">
             <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-              <form className="space-y-6" action="#" method="POST">
+              <form className="space-y-6">
                 {/* <div>
                   <label
                     htmlFor="email"
@@ -138,7 +139,7 @@ function RecoverComponent() {
 
                 <div>
                   <button
-                    // type="submit"
+                    type="button"
                     onClick={handleClick}
                     className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-teal-600 border border-transparent rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                   >

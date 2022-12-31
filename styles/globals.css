@@ -116,3 +116,16 @@ body.loading * {
     rgba(153, 246, 228, 0.25) 98.57%
   );
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.motion-fade-in {
+  animation: fadeIn 600ms;
+}

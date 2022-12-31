@@ -17,7 +17,6 @@ export default function SignIn() {
   const router = useRouter();
   const cancelButtonRef = useRef(null);
 
-  console.log(redirect, "modal");
   const handleClose = () => {
     // router.push("/user/sign-up");
     setRedirect(router.asPath);

@@ -23,9 +23,10 @@ export default function CategorySearch({
   title,
   category,
 }) {
+  console.log("ct", title);
   const { filter, active, filteredProducts } = useSearch(
     defaultProducts,
-    category
+    title
   );
   const storeProps = {
     categories,

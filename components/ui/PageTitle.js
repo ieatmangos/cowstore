@@ -10,7 +10,7 @@ export default function PageTitle({ title, msg, h3 }) {
           {title}
         </h1>
       )}
-      <p className="max-w-xl mt-4 text-sm text-gray-700">{msg}</p>
+      <p className="max-w-xl mt-4 text-sm text-gray-800">{msg}</p>
     </div>
   );
 }

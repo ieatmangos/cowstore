@@ -7,8 +7,8 @@ import React from "react";
 export default function ProjectMarquee({ products }) {
   return (
     <>
-      <article class="relative overflow-hidden">
-        <div class="flex whitespace-no-wrap overflow-x-scroll motion-safe:overflow-x-hidden">
+      <article className="relative overflow-hidden">
+        <div className="flex overflow-x-scroll whitespace-no-wrap motion-safe:overflow-x-hidden">
           <MarqueeLine products={products} className={`marquee`} />
           <MarqueeLine products={products} className={`marquee2 `} />
         </div>
@@ -39,15 +39,17 @@ const MarqueeProductCard = ({ product }) => {
         <div className="relative w-64 h-64 overflow-hidden rounded-md group">
           <div className="w-full overflow-hidden transition-all duration-500 scale-125 bg-gray-200 pointer-events-none aspect-w-1 group-hover:-translate-y-24 group-hover:scale-100 aspect-h-1">
             <Image
-              layout="fill"
+              fill
+              sizes="256px"
               src={product.images[0].file.url}
               alt={product.name}
               className="object-cover object-center w-full h-full "
             />
           </div>
-          <div className="absolute inset-0 w-full overflow-hidden transition-transform duration-700 scale-125 translate-y-[280px] bg-gray-200 pointer-events-none group-hover:translate-y-0 group-hover:scale-100 aspect-w-1 aspect-h-1">
+          <div className="absolute inset-0 w-full overflow-hidden transition-transform duration-700 scale-125 translate-y-[290px] bg-gray-200 pointer-events-none group-hover:translate-y-0 group-hover:scale-100 aspect-w-1 aspect-h-1">
             <Image
-              layout="fill"
+              fill
+              sizes="256px"
               src={product.images[1].file.url}
               alt={product.name}
               className="object-cover object-center w-full h-full "
@@ -55,7 +57,8 @@ const MarqueeProductCard = ({ product }) => {
           </div>
           {/* <div className="w-full overflow-hidden transition-transform duration-500 bg-gray-200 group-hover:-translate-x-96 aspect-w-1 aspect-h-1">
             <Image
-              layout="fill"
+              fill
+              sizes={""}
               src={
                 product.images[3]
                   ? product.images[3].file.url

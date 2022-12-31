@@ -1,17 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useEffect, useState } from "react";
 import {
   Dialog,
@@ -25,6 +11,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import cn from "@utils/cn";
 import PageTitle from "@components/ui/PageTitle";
 import { useRouter } from "next/router";
+import { reverseSlug } from "@lib/utils";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -34,21 +21,21 @@ const sortOptions = [
 
 export default function CategoryFilters({ active, filter, categories, tags }) {
   const [open, setOpen] = useState(false);
-  const { query } = useRouter();
-  const setFilterOnLoad = () => {
-    Object.keys(query).map(async (key) => {
-      try {
-        console.log("router", key, query[key]);
-        const res = await filter[key](query[key]);
-        console.log(res);
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  };
-  useEffect(() => {
-    setFilterOnLoad();
-  }, [query]);
+  // const { query } = useRouter();
+  // const setFilterOnLoad = () => {
+  //   Object.keys(query).map(async (key) => {
+  //     try {
+  //       console.log("router", key, query[key]);
+  //       const res = await filter[key](query[key]);
+  //       console.log(res);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   });
+  // };
+  // useEffect(() => {
+  //   setFilterOnLoad();
+  // }, [query]);
 
   const filters2 = [
     {
@@ -80,23 +67,6 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
       };
     })
     .filter(Boolean);
-
-  const handleOption = async (section, option) => {
-    // Turn off other check marks and set the filter category
-    const otherElements = section.options
-      .map((x, xi) => (option.value !== x.value ? xi : "void"))
-      .map((index) => {
-        const el = document.getElementById(`filter-${section.id}-${index}`);
-        if (el) {
-          el.checked = false;
-        }
-      });
-    if (otherElements && otherElements.checked) {
-      otherElements.checked = false;
-    }
-
-    await filter[section.id](option.value);
-  };
 
   return (
     <div className="bg-white">
@@ -166,32 +136,12 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
                           </h3>
                           <Disclosure.Panel className="pt-6">
                             <div className="space-y-6">
-                              {section.options.map((option, optionIdx) => (
-                                <div
-                                  key={option.value}
-                                  className="flex items-center"
-                                >
-                                  <input
-                                    onClick={() =>
-                                      handleOption(section, option)
-                                    }
-                                    id={`filter-mobile-${section.id}-${optionIdx}`}
-                                    name={`${section.id}[]`}
-                                    defaultValue={option.value}
-                                    type="checkbox"
-                                    defaultChecked={
-                                      active[option.value] === option.value
-                                    }
-                                    className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
-                                  />
-                                  <label
-                                    htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                    className="ml-3 text-sm text-gray-500"
-                                  >
-                                    {option.label}
-                                  </label>
-                                </div>
-                              ))}
+                              <OptionBoxes
+                                section={section}
+                                options={section.options}
+                                active={active}
+                                filter={filter}
+                              />
                             </div>
                           </Disclosure.Panel>
                         </>
@@ -309,32 +259,12 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
                         leaveTo="transform opacity-0 scale-95"
                       >
                         <Popover.Panel className="absolute right-0 z-10 p-4 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          <form className="space-y-4">
-                            {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={
-                                    active[section.id] === option.value
-                                  }
-                                  className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
-                                  onClick={() => handleOption(section, option)}
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="pr-6 ml-3 text-sm font-medium text-gray-900 whitespace-nowrap"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </form>
+                          <OptionBoxes
+                            section={section}
+                            options={section.options}
+                            active={active}
+                            filter={filter}
+                          />
                         </Popover.Panel>
                       </Transition>
                     </Popover>
@@ -360,40 +290,7 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
 
             <div className="mt-2 sm:mt-0 sm:ml-4">
               <div className="flex flex-wrap items-center -m-1">
-                {activeFilters.map((activeFilter, index) => (
-                  <span
-                    key={activeFilter.value}
-                    className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900"
-                  >
-                    <span>{activeFilter.label}</span>
-                    <button
-                      onClick={async () => {
-                        if (index === 0) {
-                          await filter.getNewProducts();
-                        }
-                        activeFilter.close();
-                      }}
-                      type="button"
-                      className="inline-flex flex-shrink-0 w-4 h-4 p-1 ml-1 text-gray-400 rounded-full hover:bg-gray-200 hover:text-gray-500"
-                    >
-                      <span className="sr-only">
-                        Remove filter for {activeFilter.label}
-                      </span>
-                      <svg
-                        className="w-2 h-2"
-                        stroke="currentColor"
-                        fill="none"
-                        viewBox="0 0 8 8"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeWidth="1.5"
-                          d="M1 1l6 6m0-6L1 7"
-                        />
-                      </svg>
-                    </button>
-                  </span>
-                ))}
+                <ActiveFilters filter={filter} activeFilters={activeFilters} />
               </div>
             </div>
           </div>
@@ -402,3 +299,89 @@ export default function CategoryFilters({ active, filter, categories, tags }) {
     </div>
   );
 }
+
+const OptionBoxes = ({ options, section, active, filter }) => {
+  const handleOption = async (section, option) => {
+    // Turn off other check marks and set the filter category
+    const otherElements = section.options
+      .map((x, xi) => (option.value !== x.value ? xi : "void"))
+      .map((index) => {
+        const el = document.getElementById(`filter-${section.id}-${index}`);
+        if (el) {
+          el.checked = false;
+        }
+      });
+    if (otherElements && otherElements.checked) {
+      otherElements.checked = false;
+    }
+
+    await filter[section.id](option.value);
+  };
+  return (
+    <>
+      <form className="space-y-4">
+        {options.map((option, optionIdx) => (
+          <div key={option.value} className="flex items-center">
+            <input
+              id={`filter-${section.id}-${optionIdx}`}
+              name={`${section.id}[]`}
+              defaultValue={option.value}
+              type="checkbox"
+              defaultChecked={
+                active[section.id] === option.value ||
+                active[section.id] === reverseSlug(option.value)
+              }
+              className="w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
+              onClick={() => handleOption(section, option)}
+            />
+            <label
+              htmlFor={`filter-${section.id}-${optionIdx}`}
+              className="pr-6 ml-3 text-sm font-medium text-gray-900 whitespace-nowrap"
+            >
+              {option.label}
+            </label>
+          </div>
+        ))}
+      </form>
+    </>
+  );
+};
+const ActiveFilters = ({ activeFilters, filter }) => {
+  return (
+    <>
+      {activeFilters.map((activeFilter, index) => (
+        <span
+          key={activeFilter.value}
+          className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900"
+        >
+          <span>{reverseSlug(activeFilter.label)}</span>
+          <button
+            onClick={async () => {
+              await filter.getNewProducts();
+
+              activeFilter.close();
+            }}
+            type="button"
+            className="inline-flex flex-shrink-0 w-4 h-4 p-1 ml-1 text-gray-400 rounded-full hover:bg-gray-200 hover:text-gray-500"
+          >
+            <span className="sr-only">
+              Remove filter for {activeFilter.label}
+            </span>
+            <svg
+              className="w-2 h-2"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 8 8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeWidth="1.5"
+                d="M1 1l6 6m0-6L1 7"
+              />
+            </svg>
+          </button>
+        </span>
+      ))}
+    </>
+  );
+};
