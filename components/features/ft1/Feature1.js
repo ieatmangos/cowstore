@@ -127,8 +127,9 @@ export default function Feature1() {
             </dl>
           </div>
 
-          <div className="relative mt-10 -mx-4 lg:mt-0" aria-hidden="true">
+          <div className="relative mt-10 -mx-4 lg:mt-0">
             <svg
+              aria-hidden="true"
               className="absolute transform -translate-x-1/2 translate-y-16 left-1/2 lg:hidden"
               width={784}
               height={404}
