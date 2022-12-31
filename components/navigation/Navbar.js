@@ -24,7 +24,7 @@ import cn from "@utils/cn";
 import Link from "next/link";
 import Logo from "@components/ui/Logo";
 import dynamic from "next/dynamic";
-const Cart = dynamic(() => import("@components/cart/Cart"), { ssr, false });
+const Cart = dynamic(() => import("@components/cart/Cart"), { ssr: false });
 
 const navigation = {
   categories: [
