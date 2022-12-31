@@ -198,7 +198,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="pt-8 mt-12 border-t border-gray-200">
-          <p className="text-base text-gray-400 xl:text-center">
+          <p className="text-base text-gray-600 xl:text-center">
             &copy; 2022 Cow.Store All rights reserved.
           </p>
         </div>

@@ -120,6 +120,8 @@ export default function Hero() {
                             // width={264}
                             // height={256}
                             fill
+                            priority={true}
+                            as="image"
                             sizes="33vw"
                             alt="Cow Store Steak"
                             src="/assets/steak/3.jpg"
