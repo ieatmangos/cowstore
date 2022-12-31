@@ -1,13 +1,6 @@
 import Logo from "@components/ui/Logo";
 import Link from "next/link";
 
-const links = [
-  {
-    name: "Home",
-    url: "/",
-  },
-];
-
 const navigation = {
   meat: [
     { name: "Beef", href: "/collections/beef" },

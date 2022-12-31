@@ -1,50 +1,11 @@
 import Link from "next/link";
-import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
 import ProjectMarquee from "@components/ui/marquee/ProjectMarquee";
-import Image from "next/image";
 import { Feature1 } from "@components/features";
-import Cow, { ShopButtonCow } from "@components/ui/cow";
 import CollectionsPage from "@components/search/CollectionsPage";
 import Hero from "./Hero";
 import Testimonials from "./Testimonials";
 
-const testimonials = [
-  {
-    id: 1,
-    quote:
-      "My order arrived super quickly. The product is even better than I hoped it would be. Very happy customer over here!",
-    attribution: "Sarah Peters, New Orleans",
-  },
-  {
-    id: 2,
-    quote:
-      "I had to return a purchase that didn’t fit. The whole process was so simple that I ended up ordering two new items!",
-    attribution: "Kelly McPherson, Chicago",
-  },
-  {
-    id: 3,
-    quote:
-      "Now that I’m on holiday for the summer, I’ll probably order a few more shirts. It’s just so convenient, and I know the quality will always be there.",
-    attribution: "Chris Paul, Phoenix",
-  },
-];
-
 export default function Homepage({ products, categories, reviews }) {
-  // const getVariants = async () => {
-  //   const a = await swell.get('/products:variants', {
-  //     where: { active: true },
-  //     limit: 25,
-  //     page: 1,
-  //   })
-  //   return a
-  // }
-  // useEffect(() => {
-  //   const _variants: any = getVariants()
-  //   if (_variants) {
-  //     setVariants(_variants)
-  //   }
-  // }, [])
-
   return (
     <div className="bg-white">
       <main>
@@ -97,9 +58,9 @@ export default function Homepage({ products, categories, reviews }) {
         </section>
 
         {/* Promo */}
-        {/* <section aria-label="sale-heading" className="">
+        <section aria-label="sale-heading" className="">
           <Feature1 />
-        </section> */}
+        </section>
       </main>
 
       {/* <section aria-labelledby="sale-heading">

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
 
 import Image from "next/image";
 

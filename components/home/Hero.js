@@ -1,10 +1,5 @@
-import Link from "next/link";
-import SplitImageCategoryPreview from "./SplitImageCategoryPreview";
-import ProjectMarquee from "@components/ui/marquee/ProjectMarquee";
 import Image from "next/image";
-import { Feature1 } from "@components/features";
-import Cow, { ShopButtonCow } from "@components/ui/cow";
-import CollectionsPage from "@components/search/CollectionsPage";
+import { ShopButtonCow } from "@components/ui/cow";
 
 const offers = [
   {

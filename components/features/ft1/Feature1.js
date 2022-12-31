@@ -1,11 +1,7 @@
-import { IconFarm, IconFarm1, IconSteak1 } from "@components/icons";
+import { IconFarm1, IconSteak1 } from "@components/icons";
 import {
-  BoltIcon,
   ChatBubbleBottomCenterTextIcon,
   EnvelopeIcon,
-  GlobeAltIcon,
-  ScaleIcon,
-  CheckBadgeIcon,
   TruckIcon,
 } from "@heroicons/react/24/outline";
 import ConsumeBeef from "./ConsumeBeef";

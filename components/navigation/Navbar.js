@@ -17,17 +17,14 @@ import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
-  ShoppingCartIcon,
   UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import cn from "@utils/cn";
 import Link from "next/link";
 import Logo from "@components/ui/Logo";
 import Cart from "@components/cart/Cart";
 
-const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
   categories: [
     //   {
@@ -583,7 +580,7 @@ export default function Navbar() {
                   {/* Logo (lg-) */}
                   <div className="lg:hidden">
                     <span className="sr-only">Cow Store</span>
-                    <Link href="/">
+                    <Link aria-label="Go home" href="/">
                       <Logo className={`h-8`} color="teal" />
                     </Link>
                   </div>
