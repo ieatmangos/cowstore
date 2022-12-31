@@ -84,7 +84,7 @@ export default function Hero() {
                         <div className="relative h-64 overflow-hidden rounded-lg w-44 sm:opacity-0 lg:opacity-100 bg-teal-300/25">
                           <Image
                             fill
-                            sizes="(max-width: 768px) 50vw, 33vw"
+                            sizes="256px"
                             className={`object-cover`}
                             alt="Cow Store Steak"
                             priority={true}
