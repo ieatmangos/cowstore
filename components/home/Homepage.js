@@ -89,7 +89,7 @@ export default function Homepage({ products, categories, reviews }) {
         </section>
 
         {/* Sale and testimonials */}
-        {/* <Testimonials reviews={reviews} /> */}
+        <Testimonials reviews={reviews} />
 
         {/* Collections */}
         {/* <section aria-label="Collections" className="bg-gray-100">
