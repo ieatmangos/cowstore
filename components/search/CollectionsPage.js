@@ -1,4 +1,3 @@
-import Breadcrumbs from "@components/ui/breadcrumbs";
 import PageTitle from "@components/ui/PageTitle";
 import { MagnifyingGlassPlusIcon } from "@heroicons/react/20/solid";
 import {
@@ -23,7 +22,7 @@ const files = [
 export default function CollectionsPage(props) {
   return (
     <div className={``}>
-      <Breadcrumbs />
+      {/* <Breadcrumbs /> */}
       <PageTitle
         h3={props?.useH3}
         title={"Collections"}
