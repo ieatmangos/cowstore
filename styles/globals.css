@@ -13,6 +13,7 @@
 @font-face {
   font-family: "Inter-bold";
   src: url("../assets/font/Inter-Bold.ttf");
+  font-display: swap;
 }
 
 html,
