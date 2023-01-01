@@ -1,3 +1,4 @@
+import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -38,13 +39,14 @@ export default function Breadcrumbs() {
       <nav aria-label="Breadcrumb">
         <ol
           role="list"
-          className="flex items-center px-4 pt-6 mx-auto space-x-2 sm:px-6 max-w-7xl lg:px-8"
+          className="flex items-center px-4 py-4 mx-auto space-x-2 sm:py-6 sm:px-6 max-w-7xl lg:px-8"
         >
           {breadcrumbs.map((breadcrumb, bIndx) => {
             return (
               <Crumb
                 breadcrumb={breadcrumb}
                 key={bIndx}
+                idx={bIndx}
                 last={bIndx === breadcrumbs.length - 1}
               />
             );
@@ -64,12 +66,12 @@ export default function Breadcrumbs() {
   );
 }
 
-function Crumb({ breadcrumb, last = false }) {
+function Crumb({ breadcrumb, last = false, idx }) {
   // The last crumb is rendered as normal text since we are already on the page
   if (last) {
     return (
-      <li key={breadcrumb.id}>
-        <p className="mr-2 text-sm font-medium text-gray-600 capitalize">
+      <li className={`truncate `} key={breadcrumb.id}>
+        <p className="mr-2 text-sm font-medium text-gray-500 capitalize">
           {breadcrumb.text}
         </p>
       </li>
@@ -78,15 +80,19 @@ function Crumb({ breadcrumb, last = false }) {
 
   // All other crumbs will be rendered as links that can be visited
   return (
-    <li key={breadcrumb.id}>
-      <div className="flex items-center">
+    <li className={`truncate `} key={breadcrumb.id}>
+      <div className="flex items-center ">
         <Link className={``} color="inherit" href={breadcrumb.href}>
-          <p
-            href={breadcrumb.href}
-            className="mr-2 text-sm font-medium text-gray-700 capitalize hover:underline"
-          >
-            {breadcrumb.text}
-          </p>
+          {idx === 0 ? (
+            <HomeIcon className={`w-5 text-gray-400`} />
+          ) : (
+            <p
+              href={breadcrumb.href}
+              className="mr-2 text-sm font-medium text-gray-500 capitalize hover:underline"
+            >
+              {breadcrumb.text}
+            </p>
+          )}
         </Link>
         <svg
           width={16}
