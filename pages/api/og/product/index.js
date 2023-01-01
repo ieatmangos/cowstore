@@ -52,7 +52,7 @@ export default async function handler(req) {
           />
         </div>
         <div tw="mx-4  flex-grow flex flex-col h-full ">
-          {/* <img
+          <img
             style={{
               objectFit: "cover",
               marginBottom: 16,
@@ -70,7 +70,7 @@ export default async function handler(req) {
             width={"100%"}
             height={"50%"}
             src={img4}
-          /> */}
+          />
         </div>
         <div tw="absolute top-40 bg-teal-300  rounded-full  left-[252px] flex">
           <svg
