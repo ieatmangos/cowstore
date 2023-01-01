@@ -51,7 +51,7 @@ export default async function handler(req) {
             src={img2}
           />
         </div>
-        <div tw="mx-4 bg-rose flex-grow flex flex-col h-full ">
+        <div tw="mx-4  flex-grow flex flex-col h-full ">
           <img
             style={{
               objectFit: "cover",
