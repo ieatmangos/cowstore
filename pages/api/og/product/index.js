@@ -73,7 +73,7 @@ export default async function handler(req) {
             src={img4}
           />
         </div>
-        <div tw="absolute top-40 bg-teal-300  rounded-full  left-[252px] flex">
+        <div tw="absolute p-4 top-40 bg-teal-300  rounded-full  left-[252px] flex">
           <svg
             width="320"
             height="320"
