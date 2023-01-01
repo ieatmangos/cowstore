@@ -37,10 +37,11 @@ export default function ProductDisplayPage(props) {
     ? product.images[3].file.url
     : "https://www.cow.store/assets/brand/logo_cow_only.png";
   const productOg = `https://www.cow.store/api/og/product?productName=${props.product.slug}&img1=${img1}&img2=${img2}&img3=${img3}&img4=${img4}`;
+  console.log("og", productOg);
   return (
     <>
       <Seo ogImage={productOg} title={props.product.name} />
-      {productOg}
+
       <ProductPage {...props} />
     </>
   );

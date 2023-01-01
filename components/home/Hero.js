@@ -58,7 +58,7 @@ export default function Hero() {
           <div className="relative px-4 mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-lg">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 font sm:text-6xl">
-                Your Freezer
+                Fill Your Freezer
               </h1>
               {/* <p className="mt-4 text-xl text-gray-500">
                   Vermont farmers supplying bulk orders of pasture raised beef

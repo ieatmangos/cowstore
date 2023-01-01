@@ -9,10 +9,10 @@ const font = fetch(
 
 export default async function handler(req) {
   const { searchParams } = req.nextUrl;
-  const img1 = searchParams.get("img1") || null;
-  const img2 = searchParams.get("img2") || null;
-  const img3 = searchParams.get("img3") || null;
-  const img4 = searchParams.get("img4") || null;
+  const img1 = searchParams.get("img1");
+  const img2 = searchParams.get("img2");
+  const img3 = searchParams.get("img3");
+  const img4 = searchParams.get("img4");
   //   const product = await getServerProduct("delmonico");
   const fontData = await font;
   if (!img1) {
@@ -30,6 +30,7 @@ export default async function handler(req) {
         }}
         tw="bg-teal-300 relative flex w-[1200px] h-[630px]"
       >
+        {/* <>{img1}</> */}
         <div tw="ml-4 relative  w-[33vw] flex flex-col h-full ">
           <img
             style={{
