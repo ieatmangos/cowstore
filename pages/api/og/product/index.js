@@ -30,6 +30,48 @@ export default async function handler(req) {
         }}
         tw="bg-teal-300 relative flex w-[1200px] h-[630px]"
       >
+        <div tw="ml-4 relative  w-[33vw] flex flex-col h-full ">
+          <img
+            style={{
+              objectFit: "cover",
+              marginBottom: 16,
+              objectPosition: "center",
+            }}
+            width={"100%"}
+            height={"50%"}
+            src={img1}
+          />
+          {/* <img
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+            width={"100%"}
+            height={"50%"}
+            src={img2}
+          /> */}
+        </div>
+        <div tw="mx-4  flex-grow flex flex-col h-full ">
+          {/* <img
+            style={{
+              objectFit: "cover",
+              marginBottom: 16,
+              objectPosition: "center",
+            }}
+            width={"100%"}
+            height={"50%"}
+            src={img3}
+          />
+          <img
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+            width={"100%"}
+            height={"50%"}
+            src={img4}
+          /> */}
+        </div>
         <div tw="absolute top-40 bg-teal-300 p-1 rounded-full  left-[252px] flex">
           <svg
             width="320"
