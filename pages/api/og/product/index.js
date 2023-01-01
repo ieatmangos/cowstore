@@ -65,12 +65,11 @@ export default async function handler(req) {
           <img
             style={{
               objectFit: "cover",
-
               objectPosition: "center",
             }}
             width={"100%"}
             height={"50%"}
-            src={img4}
+            src={img3}
           />
         </div>
         <div tw="absolute p-4 top-40 bg-teal-300  rounded-full  left-[252px] flex">
