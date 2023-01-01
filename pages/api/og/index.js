@@ -1,6 +1,5 @@
 import getServerProduct from "@lib/swell/products/getServerProduct";
 import { ImageResponse } from "@vercel/og";
-import { NextRequest } from "next/server";
 
 export const config = {
   runtime: "experimental-edge",
@@ -14,13 +13,13 @@ export default async function handler(req) {
   const { searchParams } = req.nextUrl;
   const productName = searchParams.get("productName");
   if (!productName) {
-    return new ImageResponse(<>Cow Store</>, {
+    return new ImageResponse(<div>Cow Store</div>, {
       width: 1200,
       height: 630,
     });
   }
   const product = await getServerProduct(productName);
-  const fontData = await font;
+  // const fontData = await font();
 
   return new ImageResponse(
     (
@@ -121,54 +120,18 @@ export default async function handler(req) {
             />
           </div>
         </div>
-
-        {/* <div tw="  bg-rose-400 rounded-lg relative">
-
-          <img src={product.images[0].file.url} tw="flex-1  absolute inset-0" />
-        
-        
-        </div> */}
-        {/*         
-        <div tw="max-w-2xl mx-auto mt-6 sm:px-6 grid max-w-7xl grid-cols-3 gap-x-8 px-8">
-          <div className="overflow-hidden rounded-lg aspect-w-3 aspect-h-4">
-            <img
-              src={product.images[0].file.url}
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-          <div className="grid hidden grid-cols-1 gap-y-8">
-            <div className="overflow-hidden rounded-lg aspect-w-3 aspect-h-2">
-              <img
-                src={product.images[1].file.url}
-                className="object-cover object-center w-full h-full"
-              />
-            </div>
-            <div className="overflow-hidden rounded-lg aspect-w-3 aspect-h-2">
-              <img
-                src={product.images[2].file.url}
-                className="object-cover object-center w-full h-full"
-              />
-            </div>
-          </div>
-          <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg aspect-w-3 aspect-h-4">
-            <img
-              src={product.images[3].file.url}
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-        </div> */}
       </div>
     ),
     {
       width: 1200,
       height: 630,
-      fonts: [
-        {
-          name: "Inter",
-          data: fontData,
-          style: "normal",
-        },
-      ],
+      // fonts: [
+      //   {
+      //     name: "Inter",
+      //     data: fontData,
+      //     style: "normal",
+      //   },
+      // ],
     }
   );
 }

@@ -25,7 +25,10 @@ export default function ProductDisplayPage(props) {
   // console.log(props);
   return (
     <>
-      <Seo title={props.product.name} />
+      <Seo
+        ogImage={`/api/og/product?productName=${props.product.slug}`}
+        title={props.product.name}
+      />
       <ProductPage {...props} />
     </>
   );
