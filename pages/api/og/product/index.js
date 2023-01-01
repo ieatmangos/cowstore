@@ -62,7 +62,7 @@ export default async function handler(req) {
             height={"50%"}
             src={img3}
           />
-          <img
+          {/* <img
             style={{
               objectFit: "cover",
               objectPosition: "center",
@@ -70,7 +70,7 @@ export default async function handler(req) {
             width={"100%"}
             height={"50%"}
             src={img4}
-          />
+          /> */}
         </div>
         <div tw="absolute top-40 bg-teal-300  rounded-full  left-[252px] flex">
           <svg
