@@ -1,4 +1,3 @@
-import { swellStore } from "@lib/swell";
 import { ImageResponse } from "@vercel/og";
 
 export const config = {
@@ -10,25 +9,19 @@ const font = fetch(
 
 export default async function handler(req) {
   const { searchParams } = req.nextUrl;
-  const productName = searchParams.get("product") || null;
-  const product = await swellStore("products", "get", productName);
+  const img1 = searchParams.get("img1") || null;
+  const img2 = searchParams.get("img2") || null;
+  const img3 = searchParams.get("img3") || null;
+  const img4 = searchParams.get("img4") || null;
   //   const product = await getServerProduct("delmonico");
   const fontData = await font;
-  if (!productName || !product) {
+  if (!img1) {
     return new ImageResponse(<>Visit with &quot;?username=vercel&quot;</>, {
       width: 1200,
       height: 630,
     });
   }
-  const img2 = product.images[1]
-    ? product.images[1].file.url
-    : "https://www.cow.store/assets/brand/logo_cow_only.png";
-  const img3 = product.images[2]
-    ? product.images[2].file.url
-    : "https://www.cow.store/assets/brand/logo_cow_only.png";
-  const img4 = product.images[3]
-    ? product.images[3].file.url
-    : "https://www.cow.store/assets/brand/logo_cow_only.png";
+
   return new ImageResponse(
     (
       <div
@@ -42,14 +35,16 @@ export default async function handler(req) {
             style={{
               objectFit: "cover",
               marginBottom: 16,
+              objectPosition: "center",
             }}
             width={"100%"}
             height={"50%"}
-            src={product.images[0].file.url}
+            src={img1}
           />
           <img
             style={{
               objectFit: "cover",
+              objectPosition: "center",
             }}
             width={"100%"}
             height={"50%"}
@@ -61,6 +56,7 @@ export default async function handler(req) {
             style={{
               objectFit: "cover",
               marginBottom: 16,
+              objectPosition: "center",
             }}
             width={"100%"}
             height={"50%"}
@@ -69,6 +65,7 @@ export default async function handler(req) {
           <img
             style={{
               objectFit: "cover",
+              objectPosition: "center",
             }}
             width={"100%"}
             height={"50%"}

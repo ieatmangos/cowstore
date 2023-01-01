@@ -11,7 +11,7 @@ export default function ProductImagesGrid({ product }) {
       <div className="hidden overflow-hidden rounded-lg aspect-w-3 aspect-h-4 lg:block">
         <img
           src={img1}
-          alt={product.images[0].alt}
+          alt={product.name}
           className="object-cover object-center w-full h-full"
         />
       </div>
@@ -20,12 +20,14 @@ export default function ProductImagesGrid({ product }) {
           <img
             src={img2}
             // alt={product.images[1].alt}
+            alt={product.name}
             className="object-cover object-center w-full h-full"
           />
         </div>
         <div className="overflow-hidden rounded-lg aspect-w-3 aspect-h-2">
           <img
             src={img3}
+            alt={product.name}
             // alt={product.images[2].alt}
             className="object-cover object-center w-full h-full"
           />
@@ -34,6 +36,7 @@ export default function ProductImagesGrid({ product }) {
       <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
         <img
           src={img4}
+          alt={product.name}
           // alt={product.images[3].alt}
           className="object-cover object-center w-full h-full"
         />

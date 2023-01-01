@@ -23,12 +23,23 @@ export async function getStaticProps({ params }) {
 
 export default function ProductDisplayPage(props) {
   // console.log(props);
+  const { product } = props;
+  const img1 = product.images[0]
+    ? product.images[0].file.url
+    : "https://www.cow.store/assets/brand/logo_cow_only.png";
+  const img2 = product.images[1]
+    ? product.images[1].file.url
+    : "https://www.cow.store/assets/brand/logo_cow_only.png";
+  const img3 = product.images[2]
+    ? product.images[2].file.url
+    : "https://www.cow.store/assets/brand/logo_cow_only.png";
+  const img4 = product.images[3]
+    ? product.images[3].file.url
+    : "https://www.cow.store/assets/brand/logo_cow_only.png";
+  const productOg = `/api/og/product?productName=${props.product.slug}&img1=${img1}&img2=${img2}&img3=${img3}&img4=${img4}`;
   return (
     <>
-      <Seo
-        ogImage={`/api/og/product?productName=${props.product.slug}`}
-        title={props.product.name}
-      />
+      <Seo ogImage={productOg} title={props.product.name} />
       <ProductPage {...props} />
     </>
   );
